@@ -1,0 +1,134 @@
+$secondaryColor: #555555;
+$primaryColor: red;
+$fontSecondColor: white;
+
+* {
+  margin:0;
+  padding:0;
+  font-size: 14px;
+  font-family: arial;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+header {
+  div.poster {
+    width:100%;
+    height:450px;
+    background:url(affiche.jpg);
+    background-size: 100%;
+    background-position: 0px 30%;
+  }
+
+  div#logo {
+    margin-top:-50px;
+    text-align: center;
+
+    img {
+      margin:auto;
+    }
+  }
+}
+
+
+section #date {
+
+  text-transform: uppercase;
+  margin: 2% auto;
+  text-align: center;
+  width:50%;
+  font-size: 2em;
+
+  .bandeau {
+    background:$secondaryColor;
+    color:$fontSecondColor;
+    width:100%;
+    font-size: 1.5em;
+    margin-bottom:10px;
+  }
+
+  #countdown {
+
+    display:flex;
+    justify-content:center;
+
+
+    div {
+
+      margin:0 0.5%;
+      width:100%;
+
+      span.nb {
+        background:$primaryColor;
+        display: block;
+        color:$fontSecondColor;
+        text-align: center;
+        font-size: 3em;
+      }
+      span.word {
+        color:$primaryColor;
+        font-size: 1.4em;
+      }
+    }
+  }
+}
+
+section article {
+  margin:3% auto;
+  width:60%;
+  text-align: justify;
+
+  p {
+    margin:1% 0;
+  }
+
+}
+
+footer {
+  width:100%;
+  height:150px;
+  background:$secondaryColor;
+  padding:1% 5%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+    color:$fontSecondColor;
+
+  #sns {
+    flex-grow:1;
+
+    div {
+      display: inline-block;
+      height:50px;
+      width:50px;
+      background:white;
+    }
+  }
+
+  .logos {
+    flex-grow:1;
+
+  }
+
+  #importantLinks {
+
+      flex-grow:1;
+    ul {
+      list-style: none;
+    }
+
+    a {
+  }
+}
+
+#address {
+  text-align: right;
+}
+}
