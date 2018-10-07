@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: arial; }
+
+a, a:hover {
+  text-decoration: none; }
+
+h1 {
+  font-size: 2em;
+  text-transform: uppercase; }
+
+header nav .menu-main-container {
+  width: 100%; }
+  header nav .menu-main-container ul {
+    display: flex; }
+  header nav .menu-main-container ul li {
+    width: 100%;
+    list-style-type: none; }
+header div.poster div#ji_header {
+  height: 550px;
+  width: 100%;
+  overflow: hidden; }
+  header div.poster div#ji_header img {
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%; }
+header div#logo {
+  margin-top: -50px;
+  text-align: center; }
+  header div#logo img {
+    margin: auto; }
+
+section #date {
+  text-transform: uppercase;
+  margin: 2% auto;
+  text-align: center;
+  width: 50%;
+  font-size: 2em; }
+  section #date .bandeau {
+    background: #555555;
+    color: white;
+    width: 100%;
+    font-size: 1.5em;
+    margin-bottom: 10px; }
+  section #date #countdown {
+    display: flex;
+    justify-content: center; }
+    section #date #countdown div {
+      margin: 0 0.5%;
+      width: 100%; }
+      section #date #countdown div span.nb {
+        background: red;
+        display: block;
+        color: white;
+        text-align: center;
+        font-size: 3em; }
+      section #date #countdown div span.word {
+        color: red;
+        font-size: 1.4em; }
+
+section article {
+  margin: 3% auto;
+  width: 60%;
+  text-align: justify; }
+  section article p {
+    margin: 1% 0; }
+
+footer#home_footer {
+  width: 100%;
+  height: 150px;
+  background: #555555;
+  padding: 1% 5%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  color: white; }
+  footer#home_footer #sns {
+    flex-grow: 1; }
+    footer#home_footer #sns div {
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      background: white; }
+  footer#home_footer .logos {
+    flex-grow: 1; }
+  footer#home_footer #importantLinks {
+    flex-grow: 1; }
+    footer#home_footer #importantLinks ul {
+      list-style: none; }
+  footer#home_footer #address {
+    text-align: right; }
+
+/*# sourceMappingURL=style.css.map */
