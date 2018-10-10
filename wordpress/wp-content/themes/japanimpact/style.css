@@ -11,13 +11,31 @@ h1 {
   font-size: 2em;
   text-transform: uppercase; }
 
-header nav .menu-main-container {
+header nav {
+  height: 50px; }
+header nav .menu-main-container, header nav .menu-main-eng-container {
   width: 100%; }
-  header nav .menu-main-container ul {
+  header nav .menu-main-container ul, header nav .menu-main-eng-container ul {
     display: flex; }
-  header nav .menu-main-container ul li {
+  header nav .menu-main-container ul li, header nav .menu-main-eng-container ul li {
     width: 100%;
-    list-style-type: none; }
+    list-style-type: none;
+    margin: 0 5px;
+    box-sizing: border-box;
+    position: relative; }
+    header nav .menu-main-container ul li a, header nav .menu-main-eng-container ul li a {
+      display: block;
+      padding: 5px 10px;
+      color: black;
+      background: lightgrey; }
+    header nav .menu-main-container ul li:hover .sub-menu, header nav .menu-main-eng-container ul li:hover .sub-menu {
+      display: block; }
+    header nav .menu-main-container ul li .sub-menu, header nav .menu-main-eng-container ul li .sub-menu {
+      display: none;
+      position: absolute;
+      width: 100%; }
+      header nav .menu-main-container ul li .sub-menu li, header nav .menu-main-eng-container ul li .sub-menu li {
+        margin: 0; }
 header div.poster div#ji_header {
   height: 550px;
   width: 100%;
@@ -60,10 +78,13 @@ section #date {
         color: red;
         font-size: 1.4em; }
 
-section article {
+section {
   margin: 3% auto;
   width: 60%;
   text-align: justify; }
+  section .category {
+    border: 1px blue solid;
+    margin: 10px; }
   section article p {
     margin: 1% 0; }
 

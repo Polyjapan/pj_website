@@ -20,7 +20,11 @@ h1 {
 
 header {
 
-  nav .menu-main-container {
+  nav {
+    height:50px;
+  }
+
+  nav .menu-main-container, nav .menu-main-eng-container {
 
     width:100%;
 
@@ -31,7 +35,34 @@ header {
     ul li {
       width:100%;
       list-style-type: none;
+      margin:0 5px;
+      box-sizing: border-box;
+      position:relative;
+
+      a {
+        display:block;
+        padding:5px 10px;
+        color:black;
+        background:lightgrey;
+      }
+
+      &:hover .sub-menu {
+        display:block;
+      }
+
+      .sub-menu {
+        display:none;
+        position: absolute;
+
+        width:100%;
+
+        li {
+          margin:0;
+        }
+      }
     }
+
+
   }
 
   div.poster div#ji_header{
@@ -99,15 +130,23 @@ section #date {
   }
 }
 
-section article {
+section {
+
   margin:3% auto;
   width:60%;
   text-align: justify;
 
-  p {
-    margin:1% 0;
+  .category {
+    border: 1px blue solid;
+    margin:10px;
   }
 
+  article {
+
+    p {
+      margin:1% 0;
+    }
+  }
 }
 
 footer#home_footer {
@@ -118,7 +157,7 @@ footer#home_footer {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-    color:$fontSecondColor;
+  color:$fontSecondColor;
 
   #sns {
     flex-grow:1;
@@ -138,16 +177,16 @@ footer#home_footer {
 
   #importantLinks {
 
-      flex-grow:1;
+    flex-grow:1;
     ul {
       list-style: none;
     }
 
     a {
+    }
   }
-}
 
-#address {
-  text-align: right;
-}
+  #address {
+    text-align: right;
+  }
 }

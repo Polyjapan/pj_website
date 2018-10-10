@@ -19,13 +19,16 @@
     echo "blog page";
   } else {
     //everything else
-    echo "sth???";
+    echo "sth??? check in page.php";
   }
 
   ?>
 
 
   <?php include("header.php"); ?>
+
+  <section>
+
 
   <?php
   while ( have_posts() ) : the_post(); ?>
@@ -60,6 +63,7 @@
 <?php
 endwhile; ?>
 
+</section>
 
 
   <?php include("footer.php") ?>

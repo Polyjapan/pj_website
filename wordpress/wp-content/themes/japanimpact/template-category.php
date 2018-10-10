@@ -2,6 +2,8 @@
 /**
  * Template Name: Program Page
  */
+
+ include("settings.php");
  ?>
 
  <?php include("head.php"); ?>
@@ -11,22 +13,30 @@
 
    <?php include("header.php"); ?>
 
+<section>
+
+<?php include("planning.php") ?>
 
 
  <?php
- // CATEGORIES SELECTION
-if(pll_current_language() == "fr") $category_slugs = "martial-arts, projections";
-else $category_slugs = "martial-arts-en, projections-en";
+
+
+foreach ($category_slugs as $c) {
 
  $args = array(
      'post_type' => 'post',
      'post_status' => 'publish',
      'lang' => pll_current_language(),
-     'category_name' => $category_slugs,
+     'category_name' => $c,
    );
 
  $arr_posts = new WP_Query( $args );
 
+?>
+
+<div class="category">
+
+<?php
 
  if ( $arr_posts->have_posts() ) :
 
@@ -43,7 +53,7 @@ else $category_slugs = "martial-arts-en, projections-en";
                  <h1 class="entry-title"><?php the_title(); ?></h1>
              </header>
              <div class="entry-content">
-                 <?php the_excerpt(); ?>
+                 <?php the_content(); ?>
                  <a href="<?php the_permalink(); ?>">Read More</a>
              </div>
          </article>
@@ -53,5 +63,12 @@ else $category_slugs = "martial-arts-en, projections-en";
 
 ?>
 
+</div>
+
+<?php
+}
+ ?>
+
+</section>
 
   <?php include("footer.php") ?>
