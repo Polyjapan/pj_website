@@ -14,7 +14,8 @@ function EnqueueMyStyles() {
 
     //wp_enqueue_style('my-main-style', get_stylesheet_uri(), false, '20150320');
 
-    wp_enqueue_script('countdown-script', get_template_directory_uri() . '/js/countdown.js'); // , array ( /*deps*/ ), '1.0', true
+        wp_enqueue_script('countdown-script', get_template_directory_uri() . '/js/countdown.js'); // , array ( /*deps*/ ), '1.0', true
+        //wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js'); // , array ( /*deps*/ ), '1.0', true
 
 }
 add_action('wp_enqueue_scripts', 'EnqueueMyStyles');
@@ -32,3 +33,6 @@ function themename_custom_header_setup() {
     add_theme_support( 'custom-header', $args );
 }
 add_action( 'after_setup_theme', 'themename_custom_header_setup' );
+
+// Register Custom Navigation Walker
+require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';

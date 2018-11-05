@@ -1,74 +1,107 @@
 <?php
 /**
- * Template Name: Program Page
- */
+* Template Name: Program Page
+*/
 
- include("settings.php");
- ?>
-
- <?php include("head.php"); ?>
- <body>
-
-
-
-   <?php include("header.php"); ?>
-
-<section>
-
-<?php include("planning.php") ?>
-
-
- <?php
-
-
-foreach ($category_slugs as $c) {
-
- $args = array(
-     'post_type' => 'post',
-     'post_status' => 'publish',
-     'lang' => pll_current_language(),
-     'category_name' => $c,
-   );
-
- $arr_posts = new WP_Query( $args );
-
+include("settings.php");
 ?>
 
-<div class="category">
+<?php include("head.php"); ?>
+<body>
 
-<?php
 
- if ( $arr_posts->have_posts() ) :
 
-     while ( $arr_posts->have_posts() ) :
-         $arr_posts->the_post();
-         ?>
-         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-             <?php
-             if ( has_post_thumbnail() ) :
-                 the_post_thumbnail();
-             endif;
-             ?>
-             <header class="entry-header">
-                 <h1 class="entry-title"><?php the_title(); ?></h1>
-             </header>
-             <div class="entry-content">
-                 <?php the_content(); ?>
-                 <a href="<?php the_permalink(); ?>">Read More</a>
-             </div>
-         </article>
-         <?php
-     endwhile;
- endif;
+  <?php include("header.php"); ?>
 
-?>
+  <section>
 
-</div>
+    <?php include("planning.php") ?>
 
-<?php
-}
- ?>
+    <div class="container">
+
+      <?php
+
+
+      foreach ($category_slugs as $c) {
+
+        $args = array(
+          'post_type' => 'post',
+          'post_status' => 'publish',
+          'lang' => pll_current_language(),
+          'category_name' => $c,
+        );
+
+
+        $arr_posts = new WP_Query( $args );
+
+        ?>
+
+        <h1 class="category-title" style="color:<?php echo $colors[$c]; ?>"><?php echo $c; ?></h1>
+
+        <div class="row category" style="border-color:<?php echo $colors[$c]; ?>">
+
+
+          <?php
+
+          if ( $arr_posts->have_posts() ) :
+
+            while ( $arr_posts->have_posts() ) :
+              $arr_posts->the_post();
+
+              $meta = get_post_custom();
+              ?>
+
+              <div class="row article align-items-center" id="post-<?php the_ID(); ?>" <?php post_class(); ?>  style="border-color:<?php echo $colors[$c]; ?>">
+
+                <?php
+                if ( has_post_thumbnail() ) :
+                  the_post_thumbnail();
+                endif;
+                ?>
+
+                <div class="col-md-4">
+                  <img src="  <?php echo $meta['img'][0]; ?>   " alt=""/>
+                </div>
+
+                <div class="col-md-8">
+
+                  <h2 class="entry-title"  style="color:<?php echo $colors[$c]; ?>"><?php the_title(); ?></h2>
+
+
+                  <span class="dates">
+                    <?php
+
+                    echo $meta['day'][0] . "," . $meta['from'][0] . " - " . $meta['to'][0] . " at " . $meta["room"][0];
+
+                    ?>
+                  </span>
+
+                  <div class="entry-content">
+                    <?php the_content(); ?>
+                    <a href="<?php the_permalink(); ?>">Read More</a>
+                  </div>
+
+
+                </div>
+              </div>
+              <!--
+            </div> -->
+            <?php
+          endwhile;
+        endif;
+
+        ?>
+
+      </div>
+
+
+
+      <?php
+    }
+    ?>
+
+  </div>
 
 </section>
 
-  <?php include("footer.php") ?>
+<?php include("footer.php") ?>

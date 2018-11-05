@@ -2,24 +2,37 @@
 
   <div id="sns" class="">
     <div class="">
-      <a href="https://www.facebook.com/japanimpact.ch"></a>
-      y
+      <a href="https://www.facebook.com/japanimpact.ch">
+<i class="fab fa-facebook-f"></i>
+      </a>
+
     </div>
     <div class="">
-      t
-      <a href="https://twitter.com/japanimpact"></a>
+
+      <a href="https://twitter.com/japanimpact">
+        <i class="fab fa-twitter"></i>
+      </a>
     </div>
     <div class="">
-      i
-      <a href="https://www.addthis.com/bookmark.php?v=250"></a>
+
+      <a href="https://japan-impact.ch/fr/contact/">
+      <i class="fab fa-instagram"></i>
+    </a>
     </div>
     <div class="">
-      m
-      <a href="https://www.youtube.com/user/JapanImpactOfficiel"></a>
+      <a href="https://www.addthis.com/bookmark.php?v=250">
+<i class="fas fa-plus"></i>
+      </a>
     </div>
     <div class="">
-      m
-      <a href="https://japan-impact.ch/fr/contact/"></a>
+      <a href="https://www.youtube.com/user/JapanImpactOfficiel">
+<i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    <div class="">
+      <a href="https://japan-impact.ch/fr/contact/">
+<i class="fas fa-envelope"></i>
+      </a>
     </div>
   </div>
 
