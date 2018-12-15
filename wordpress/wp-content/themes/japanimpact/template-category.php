@@ -42,22 +42,27 @@ include("settings.php");
 
         ?>
 
-        <h1 class="category-title" style="color:<?php echo $colors[$c]; ?>"><?php echo $category_name; ?></h1>
+        <h2 class="category-title" style="color:<?php echo $colors[$c]; ?>"><?php echo $category_name; ?></h2>
 
-        <div class="row category" style="border-color:<?php echo $colors[$c]; ?>">
+        <div class="category" style="border-color:<?php echo $colors[$c]; ?>">
 
 
           <?php
 
           if ( $arr_posts->have_posts() ) :
 
-            while ( $arr_posts->have_posts() ) :
-              $arr_posts->the_post();
+            ?>
 
-              $meta = get_post_custom();
-              ?>
+            <div class="row article align-items-center" <?php post_class(); ?>  style="border-color:<?php echo $colors[$c]; ?>">
 
-              <div class="row article align-items-center" id="post-<?php the_ID(); ?>" <?php post_class(); ?>  style="border-color:<?php echo $colors[$c]; ?>">
+              <?php
+
+              while ( $arr_posts->have_posts() ) :
+                $arr_posts->the_post();
+
+                $meta = get_post_custom();
+                ?>
+
 
                 <?php
                 if ( has_post_thumbnail() ) :
@@ -65,13 +70,11 @@ include("settings.php");
                 endif;
                 ?>
 
-                <div class="col-md-4">
-                  <img src="  <?php echo $meta['img'][0]; ?>   " alt=""/>
-                </div>
+                <div class="col-md-4"  id="post-<?php the_ID(); ?>">
 
-                <div class="col-md-8">
+                    <img src="  <?php echo $meta['img'][0]; ?>   " alt=""/>
 
-                  <h2 class="entry-title"  style="color:<?php echo $colors[$c]; ?>"><?php the_title(); ?></h2>
+                  <h3 class="entry-title"  style="color:<?php echo $colors[$c]; ?>"><?php the_title(); ?></h3>
 
 
                   <span class="dates">
@@ -86,19 +89,20 @@ include("settings.php");
                   </span>
 
                   <div class="entry-content">
-                    <?php the_content(); ?>
+                    <?php echo wp_trim_words( get_the_content(), 10, '...' ); ?>
                     <a href="<?php the_permalink(); ?>">Read More</a>
                   </div>
 
 
                 </div>
-              </div>
-              <!--
-            </div> -->
-            <?php
-          endwhile;
+                <!--
+              </div> -->
+              <?php
+            endwhile;
+            ?>
+          </div>
+          <?php
         endif;
-
         ?>
 
       </div>

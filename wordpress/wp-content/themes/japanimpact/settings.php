@@ -3,11 +3,11 @@
 
 // CATEGORIES SELECTION
 if(pll_current_language() == "fr") {
-  $categories_all = "martial-arts,projections,conferences,animations,concerts";
+  $categories_all = "martial-arts,projections,conferences,animations,concerts,ateliers";
   $category_slugs = preg_split("/\,/",$categories_all);
 }
 else {
-  $categories_all = "martial-arts-en,projections-en,conferences-en,animations-en,concerts-en";
+  $categories_all = "martial-arts-en,projections-en,conferences-en,animations-en,concerts-en,ateliers-en";
   $category_slugs = preg_split("/\,/",$categories_all);
 }
 
@@ -21,7 +21,9 @@ $colors = array( // can put in categories description and then retrieve
   "animations" => "orange",
   "animations-en" => "orange",
   "concerts" => "red",
-  "concerts-en" => "red"
+  "concerts-en" => "red",
+  "ateliers" => "grey",
+  "ateliers-en" => "grey"
 );
 
 

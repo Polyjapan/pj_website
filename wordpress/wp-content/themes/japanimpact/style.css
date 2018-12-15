@@ -11,6 +11,9 @@ Text Domain: japan-impact
 Tags: japanimpact
 
 */
+@font-face {
+  font-family: primaryFont;
+  src: url(fonts/FRABK.TTF); }
 .mt-25 {
   margin-top: 25px; }
 
@@ -37,6 +40,11 @@ h1 {
 
 h2 {
   font-size: 2em;
+  text-transform: uppercase;
+  font-family: primaryFont; }
+
+h3 {
+  font-family: primaryFont;
   text-transform: uppercase; }
 
 header nav.navbar {
@@ -103,25 +111,28 @@ section #date {
 
 section {
   text-align: justify; }
-  section h1.category-title {
+  section h2.category-title {
     font-size: 3em;
     text-indent: 5%;
     height: 10px;
-    font-style: italic; }
+    font-style: italic;
+    font-weight: bold; }
   section .category {
     margin: 5% 0; }
     section .category div.article {
       border: 10px blue solid;
-      border-width: 20px 0;
+      border-width: 20px 0 0;
       padding: 5px;
       background: white;
       margin-top: -20px; }
-      section .category div.article h2.entry-title {
+      section .category div.article h3.entry-title {
         font-size: 2em;
-        text-transform: capitalize; }
+        text-transform: uppercase;
+        font-weight: bold; }
       section .category div.article img {
         width: 100%;
-        padding: 10px; }
+        height: 200px;
+        object-fit: cover; }
       section .category div.article .dates {
         color: grey; }
   section article p {
