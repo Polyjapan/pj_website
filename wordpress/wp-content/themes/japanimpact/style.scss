@@ -1,11 +1,63 @@
+/*
+Theme Name: Japan Impact 2019
+Theme URI:
+Author: the WordPress team
+Author URI: https://wordpress.org/
+Description: Japan Impact website theme 2019
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: japan-impact
+Tags: japanimpact
+
+*/
+
 $secondaryColor: #555555;
 $primaryColor: red;
 $fontSecondColor: white;
 
+$phone-width: 575.98px;
+$tablet-width: 1300px;
+$desktop-width: 1650px;
+
+@mixin phone {
+  @media (max-width: $phone-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+
+.mt-25 {
+  margin-top:25px;
+}
+
+.mb-25 {
+  margin-bottom:25px;
+}
+
+article .container {
+  @include desktop {
+    min-height: 600px;
+  }
+}
+
+
 * {
   margin:0;
   padding:0;
-  font-size: 15px;
+  font-size: 16px;
   font-family: arial;
 }
 
@@ -21,7 +73,11 @@ h1 {
 
 h2 {
   font-size: 2em;
+  text-transform: uppercase;
+
 }
+
+
 
 // nav.navbar {
 //   position:fixed;
@@ -35,6 +91,7 @@ header {
     position:fixed;
     width:100%;
     background:white;
+    z-index: 10;
 
     button {
       margin:10px;
@@ -42,6 +99,20 @@ header {
 
     div#bs-example-navbar-collapse-1 {
       padding:10px;
+    }
+
+
+    .lang-item {
+      display: inline;
+
+      a{
+        color:$primaryColor;
+
+        span {
+          color:red;
+        }
+
+      }
     }
 
   }
@@ -91,9 +162,11 @@ header {
     height:550px;
     width:100%;
     overflow:hidden;
+    text-align: center;
 
     img {
       width:100%;
+      height:100%;
       object-fit: cover;
       object-position: 50% 50%;
     }
@@ -115,15 +188,19 @@ section #date {
   text-transform: uppercase;
   margin: 2% auto;
   text-align: center;
-  width:50%;
   font-size: 2em;
+  width:50%;
+
+  @include tablet {
+  width:70%;
+  }
 
   .bandeau {
     background:$secondaryColor;
     color:$fontSecondColor;
     width:100%;
-    font-size: 1.5em;
     margin-bottom:10px;
+    font-size: 1.5em;
   }
 
   #countdown {
@@ -142,6 +219,7 @@ section #date {
         display: block;
         color:$fontSecondColor;
         text-align: center;
+
         font-size: 3em;
       }
       span.word {
@@ -202,6 +280,10 @@ section {
       margin:1% 0;
     }
 
+    img {
+      width:100%;
+    }
+
   }
 }
 
@@ -211,17 +293,15 @@ footer#home_footer {
   background:$secondaryColor;
   padding:1% 5%;
   box-sizing: border-box;
-  display: flex;
   justify-content: center;
   color:$fontSecondColor;
 
   #sns {
-    flex-grow:1;
 
     div {
       display: inline-block;
-      height:50px;
-      width:50px;
+      height:40px;
+      width:40px;
 
       a i {
         font-size:30px;
@@ -236,13 +316,14 @@ footer#home_footer {
   }
 
   .logos {
-    flex-grow:1;
+    img {
 
+      max-width:30%
+    }
   }
 
   #importantLinks {
 
-    flex-grow:1;
     ul {
       list-style: none;
     }
@@ -258,7 +339,8 @@ footer#home_footer {
 
 #plannings {
 
-  margin:40px 20px;
+  margin:40px auto;
+  max-width: 90%;
 
   .table {
     display:none;
@@ -268,15 +350,45 @@ footer#home_footer {
     text-align: center;
 
     span{
-        display:inline-block;
-        background:grey;
-        width:22%;
-        margin:auto;
+      display:inline-block;
+      background:grey;
+      width:10%;
+      margin:5px;
+      font-weight: bold;
+      text-shadow:white 1px 1px 0px,white -1px 1px 0px,white 1px -1px 0px,white -1px -1px 0px;
 
-        &:hover {
-          cursor:pointer;
-        }
+      &:hover {
+        cursor:pointer;
+      }
 
     }
   }
+}
+
+
+#partners {
+
+  .row {
+
+  }
+
+  a h4 {
+    //text-transform: uppercase;
+    color:$secondaryColor;
+     font-weight: bold;
+     margin:5% 0 2%;
+     text-align: center;
+
+     &:hover {
+       opacity:0.8;
+     }
+  }
+
+  img {
+    max-width:95%;
+    margin:auto;
+    display:block;
+  }
+
+
 }

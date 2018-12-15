@@ -67,46 +67,67 @@
       </div>
     </div>
 
+<!--
+    <h2>Mockup:
+       https://drive.google.com/drive/u/2/folders/1C6q4jm98VGwKroqduDY2cOTpXdOi8tgx
+    </h2>
+    -->
+
+    <div class="container">
 
 
-<?php
+      <?php
 
 
- $args = array(
-     'post_type' => 'post',
-     'post_status' => 'publish',
-     'lang' => pll_current_language()
-   );
-
- $arr_posts = new WP_Query( $args );
 
 
- if ( $arr_posts->have_posts() ) :
+      $args = array(
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'lang' => pll_current_language()
+      );
 
-     while ( $arr_posts->have_posts() ) :
-         $arr_posts->the_post();
-         ?>
-         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-             <?php
-             if ( has_post_thumbnail() ) :
-                 the_post_thumbnail();
-             endif;
-             ?>
-             <header class="entry-header">
-                 <h1 class="entry-title"><?php the_title(); ?></h1>
-             </header>
-             <div class="entry-content">
-                 <?php the_content(); ?>
-
-             </div>
-         </article>
-         <?php
-     endwhile;
- endif;
-
- ?>
+      $arr_posts = new WP_Query( $args );
 
 
+      if ( $arr_posts->have_posts() ) :
+
+        while ( $arr_posts->have_posts() ) :
+          $arr_posts->the_post();
+          $meta = get_post_custom();
+          ?>
+          <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+                <div class="row">
+            <div class="col-md-4">
+              <img class="" src="  <?php echo $meta['img'][0]; ?>   " alt=""/>
+            </div>
+
+            <div class="col-md-8">
+              <?php
+              if ( has_post_thumbnail() ) :
+                the_post_thumbnail();
+              endif;
+              ?>
+              <header class="entry-header">
+                <h1 class="entry-title"><?php the_title(); ?></h1>
+              </header>
+              <div class="entry-content">
+                <?php the_content(); ?>
+              </div>
+
+            </div>
+          </div>
+
+          </article>
+          <?php
+        endwhile;
+      endif;
+
+      ?>
+
+
+    </div>
 
   </section>
 

@@ -15,9 +15,11 @@ include("settings.php");
 
   <section>
 
+
     <?php include("planning.php") ?>
 
     <div class="container">
+
 
       <?php
 
@@ -34,9 +36,13 @@ include("settings.php");
 
         $arr_posts = new WP_Query( $args );
 
+
+        $category_name = get_category_by_slug( $c )->name;
+
+
         ?>
 
-        <h1 class="category-title" style="color:<?php echo $colors[$c]; ?>"><?php echo $c; ?></h1>
+        <h1 class="category-title" style="color:<?php echo $colors[$c]; ?>"><?php echo $category_name; ?></h1>
 
         <div class="row category" style="border-color:<?php echo $colors[$c]; ?>">
 
@@ -71,7 +77,10 @@ include("settings.php");
                   <span class="dates">
                     <?php
 
-                    echo $meta['day'][0] . "," . $meta['from'][0] . " - " . $meta['to'][0] . " at " . $meta["room"][0];
+                    $day = $day_translation[$meta['day'][0]][pll_current_language()];
+                    $at = (pll_current_language() == "en") ? " at " : " en ";
+
+                    echo $day . "," . $meta['from'][0] . " - " . $meta['to'][0] . $at . $meta["room"][0];
 
                     ?>
                   </span>

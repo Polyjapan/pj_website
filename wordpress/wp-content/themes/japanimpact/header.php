@@ -17,17 +17,9 @@
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
        </button>
-       <a class="navbar-brand" href="#">Japan Impact</a>
-          <!-- <?php include("menu-example.php") ?> -->
-          <?php
+       <!-- <a class="navbar-brand" href="#">Japan Impact</a> -->
 
-         //  wp_nav_menu( array(
-         //  'theme_location' => 'header-menu',
-         //  // 'container-class'=> 'collapse navbar-collapse',
-         //  // 'items_wrap' => '<ul id="%1$s" class="navbar-nav">%3$s</ul>',
-         //  // 'before'=>'<li class="nav-item">',
-         //  // 'after'=>'</li>',
-         // ) );
+          <?php
 
          wp_nav_menu( array(
 	'theme_location'  => 'header-menu',
@@ -42,6 +34,9 @@
 
 
         ?>
+        
+        <!-- <ul id="languages"><?php pll_the_languages();?></ul> -->
+
       </nav>
         <script type="text/javascript">
           // $(".sub-menu").hide();

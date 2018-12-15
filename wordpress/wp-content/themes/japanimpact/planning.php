@@ -29,6 +29,8 @@ th {
   font-size:20px;
   background:lightgrey;
   border:1px solid black;
+  font-weight: bold;
+  text-shadow:white 1px 1px 0px,white -1px 1px 0px,white 1px -1px 0px,white -1px -1px 0px;
 }
 </style>
 
@@ -116,7 +118,10 @@ endwhile; endif;
   foreach($planning as $day => $p) {
 
     foreach($p as $name => $plan) {
-              // echo "<h1>" . $day . "</h1>";
+      // echo "<h1>" . $day . "</h1>";
+
+      $day_title = $day_translation[$day][pll_current_language()];
+      $color = $zone_colors[$name];
 
       ?>
 
@@ -125,12 +130,12 @@ endwhile; endif;
 
         <tr>
           <td class="offset"></td>
-          <th scope="col" colspan="<?php echo sizeof(reset($plan)); ?>"><?php echo $day . " - " . $name ?></th>
+          <th  scope="col" colspan="<?php echo sizeof(reset($plan)); ?>"><?php echo  $day_title ?></th>
         </tr>
         <tr>
           <td class="offset"></td>
           <?php foreach(reset($plan) as $room=>$k){
-            echo '<th scope="col">'. $room . '</th>';
+            echo '<th style="background:'.$color.'" scope="col">'. $room . '</th>';
           } ?>
         </tr>
 
@@ -165,10 +170,28 @@ endwhile; endif;
 </div>
 
 <div id="buttons-planning">
-  <span class="button-planning" id="planning-0">SAMEDI - 1</span>
+  <?php
+
+  $num = 0;
+  for ($d=0; $d < sizeof($planning); $d++) {
+    for ($i=1; $i <= sizeof($rooms); $i++) {
+      $day = $day_translation[array_keys($planning)[$d]][pll_current_language()];
+      $zone = array_keys($rooms)[$i-1];
+      $color = $zone_colors[$zone];
+
+      echo '<span style="background:'.$color.'" class="button-planning" id="planning-'.$num.'">'. $day .' - '. $zone .'</span>';
+      $num++;
+    }
+  }
+  ?>
+  <!-- <span class="button-planning" id="planning-0">SAMEDI - 1</span>
   <span class="button-planning" id="planning-1">SA - 2</span>
-  <span class="button-planning" id="planning-2">DI - 1</span>
-  <span class="button-planning" id="planning-3">DI - 2</span>
+  <span class="button-planning" id="planning-2">SAMEDI - 3</span>
+  <span class="button-planning" id="planning-3">SA - 4</span>
+  <span class="button-planning" id="planning-4">SAMEDI - 5</span>
+  <span class="button-planning" id="planning-5">SA - 6</span>
+  <span class="button-planning" id="planning-6">SAMEDI - 1</span>
+  <span class="button-planning" id="planning-7">SA - 2</span> -->
 </div>
 
 </div>
@@ -176,17 +199,17 @@ endwhile; endif;
 <script type="text/javascript">
 
 $(document).ready(function(){
-$(".table#planning-0 ").show();
+  $(".table#planning-0 ").show();
 
-$(".button-planning").click(function(){
+  $(".button-planning").click(function(){
 
 
-  $(".table").each(function(){$(this).hide();});
+    $(".table").each(function(){$(this).hide();});
 
-  var id = $(this).attr("id");
-  console.log(id);
-  $(".table#"+id).show();
-});
+    var id = $(this).attr("id");
+    console.log(id);
+    $(".table#"+id).show();
+  });
 
 });
 </script>

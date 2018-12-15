@@ -1,6 +1,10 @@
 <footer id="home_footer">
 
-  <div id="sns" class="">
+  <div class="container">
+  <div class="row">
+
+
+  <div id="sns" class="col-sm-3">
     <div class="">
       <a href="https://www.facebook.com/japanimpact.ch">
 <i class="fab fa-facebook-f"></i>
@@ -36,33 +40,35 @@
     </div>
   </div>
 
-  <div class="logos">
+  <div class="logos col-sm-4" >
     <a href="https://polyjapan.epfl.ch/">
-       <img src="" alt=""/>
+       <img  src="https://polyjapan.epfl.ch/files/content/sites/polyjapan/files/img/Polyjapan%20simplifi%C3%A9_small.png" alt=""/>
        </a>
-    <img width="10%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_EPFL.svg/400px-Logo_EPFL.svg.png" alt=""/>
-    <img width="10%" src="https://agepoly.ch/static/media/uploads/.thumbnails/logo_agepoly_-_horizontal.png/logo_agepoly_-_horizontal-369x91.png" alt=""/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_EPFL.svg/400px-Logo_EPFL.svg.png" alt=""/>
+    <img src="https://agepoly.ch/static/media/uploads/.thumbnails/logo_agepoly_-_horizontal.png/logo_agepoly_-_horizontal-369x91.png" alt=""/>
 
-    <ul><?php pll_the_languages();?></ul>
+
   </div>
-<!--
-  <div id="importantLinks">
+
+  <div id="importantLinks"  class="col-sm-2">
     <ul>
-      <li><a href="#">lorem</a></li>
-      <li><a href="#">lorem</a></li>
-      <li><a href="#">lorem</a></li>
-      <li><a href="#">lorem</a></li>
-      <li><a href="#">lorem</a></li>
+      <li><a href="#">Présentation</a></li>
+      <li><a href="#">Informations pratiques</a></li>
+      <li><a href="#">Programme</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Partenaires</a></li>
     </ul>
-  </div> -->
-
-  <div id="address">
-    avenue truc<br/>
-      EPFL<br/>
-    Suisse<br/>
-      blabla<br/>
   </div>
 
+  <div id="address"  class="col-sm-3">
+    Ecole Polytechnique Fédérale de Lausanne, EPFL<br/>
+    Avenue Piccard 2<br/>
+    1015 Ecublens<br/>
+    Suisse<br/>
+  </div>
+</div>
+
+    </div>
 </footer>
 
 

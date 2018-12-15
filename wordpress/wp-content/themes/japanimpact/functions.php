@@ -27,8 +27,8 @@ function themename_custom_header_setup() {
     $args = array(
         'default-image'      => get_template_directory_uri() . '/img/affiche.jpg',
         'default-text-color' => '000',
-        'width'              => 1000,
-        'height'             => 500
+        'width'              => 2000,
+        'height'             => 600
     );
     add_theme_support( 'custom-header', $args );
 }
