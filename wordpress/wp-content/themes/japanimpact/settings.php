@@ -67,14 +67,14 @@ foreach ($rooms as $key => $value) {
 
 //https://drive.google.com/drive/u/2/folders/1Zui0knmCKMGOMmqI7-6H3d7kx03Uiqpv
 
-var_dump($plannings);
+// var_dump($plannings);
 
 // $slots_a = array("10:00"=>$a, "10:30"=>$a, "11:00"=>$a, "11:30"=>$a, "12:00"=>$a, "12:30"=>$a, "13:00"=>$a, "13:30"=>$a);
 // $slots_b = array("10:00"=>$b, "10:30"=>$b, "11:00"=>$b, "11:30"=>$b, "12:00"=>$b, "12:30"=>$b, "13:00"=>$b, "13:30"=>$b);
 // $p = array("scenes" => $slots_a, "auditoires"=>$slots_b);
 // $planning = array("sa" => $p, "di"=>$p);
 
-$day_translation = array(
+$translation = array(
   "sa" => array(
     "fr" => "samedi",
     "en" => "saturday"
@@ -82,6 +82,10 @@ $day_translation = array(
   "di" => array(
     "fr" => "dimanche",
     "en" => "sunday"
+  ),
+  "more" => array(
+    "fr" => "Lire la suite",
+    "en" => "Read More"
   )
 );
 

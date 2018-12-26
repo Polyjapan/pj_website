@@ -7,27 +7,27 @@
 
 
   <?php
-
-  if ( is_front_page() && is_home() ) {
-    // Default homepage
-    echo "default homepage";
-  } elseif ( is_front_page() ) {
-    // static homepage
-    echo "static homepage";
-  } elseif ( is_home() ) {
-    // blog page
-    echo "blog page";
-  } else {
-    //everything else
-    echo "sth??? check in page.php";
-  }
+  // 
+  // if ( is_front_page() && is_home() ) {
+  //   // Default homepage
+  //   echo "default homepage";
+  // } elseif ( is_front_page() ) {
+  //   // static homepage
+  //   echo "static homepage";
+  // } elseif ( is_home() ) {
+  //   // blog page
+  //   echo "blog page";
+  // } else {
+  //   //everything else
+  //   echo "sth??? check in page.php";
+  // }
 
   ?>
 
 
   <?php include("header.php"); ?>
 
-  <section>
+  <section id="page">
 
 
   <?php

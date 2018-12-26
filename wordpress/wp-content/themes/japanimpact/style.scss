@@ -12,9 +12,9 @@ Tags: japanimpact
 
 */
 
-$secondaryColor: #555555;
-$primaryColor: red;
-$fontSecondColor: white;
+$secondaryColor: #3d4556;
+$primaryColor: #d21e2e;
+$fontSecondColor: lightgrey;
 
 $phone-width: 575.98px;
 $tablet-width: 1300px;
@@ -68,6 +68,7 @@ article .container {
 
 a, a:hover {
   text-decoration: none;
+  color:$primaryColor;
 }
 
 h1 {
@@ -77,10 +78,12 @@ h1 {
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 2.1em;
   text-transform: uppercase;
   font-family: primaryFont;
+  font-weight: bold;
 }
+
 h3 {
   font-family: primaryFont;
   text-transform: uppercase;
@@ -101,6 +104,18 @@ header {
     background:white;
     z-index: 10;
 
+    .nav-item.active .nav-link { /*current link*/
+      color:$primaryColor;
+    }
+
+    .nav-item .nav-link {
+      color:$secondaryColor;
+
+      &:hover {
+        opacity:0.5;
+      }
+    }
+
     button {
       margin:10px;
     }
@@ -113,14 +128,14 @@ header {
     .lang-item {
       display: inline;
 
-      a{
-        color:$primaryColor;
-
-        span {
-          color:red;
-        }
-
-      }
+      // a{
+      //   color:$primaryColor;
+      //
+      //   span {
+      //     color:red;
+      //   }
+      //
+      // }
     }
 
   }
@@ -166,17 +181,34 @@ header {
   //
   // }
 
+  .dropdown-menu {
+    background:white;
+    border-width: 0 0 0 2px;
+    padding:0;
+
+    @include phone {
+      background:none;
+    }
+  }
+
   div.poster div#ji_header{
-    height:550px;
+    @include desktop{
+      height:550px;
+    }
+    @include tablet{
+      height:300px;
+    }
     width:100%;
     overflow:hidden;
     text-align: center;
 
     img {
       width:100%;
-      height:100%;
       object-fit: cover;
       object-position: 50% 50%;
+      @include tablet {
+        height:100%;
+      }
     }
   }
 
@@ -186,6 +218,9 @@ header {
 
     img {
       margin:auto;
+      @include phone{
+        width:200px;
+      }
     }
   }
 }
@@ -194,7 +229,7 @@ header {
 section #date {
 
   text-transform: uppercase;
-  margin: 2% auto;
+  margin: 4% auto;
   text-align: center;
   font-size: 2em;
   width:50%;
@@ -205,10 +240,13 @@ section #date {
 
   .bandeau {
     background:$secondaryColor;
-    color:$fontSecondColor;
+    color:white;
     width:100%;
     margin-bottom:10px;
     font-size: 1.5em;
+    @include tablet {
+      font-size:0.9em;
+    }
   }
 
   #countdown {
@@ -225,14 +263,18 @@ section #date {
       span.nb {
         background:$primaryColor;
         display: block;
-        color:$fontSecondColor;
+        color:white;
         text-align: center;
 
         font-size: 3em;
+
       }
       span.word {
         color:$primaryColor;
         font-size: 1.4em;
+        @include phone {
+          font-size:1em;
+        }
       }
     }
   }
@@ -247,14 +289,13 @@ section {
   h2.category-title {
     font-size: 3em;
     text-indent: 5%;
-    height:10px;
     font-style: italic;
     font-weight: bold;
   }
 
   .category {
     //border: 10px blue solid;
-    margin:5% 0;
+    margin:2% 0 5%;
     //border-width:15px 0;
     //background:grey;
 
@@ -275,14 +316,12 @@ section {
 
       img {
         width:100%;
-        height:200px;
-        //float:left;
         object-fit: cover;
 
       }
 
       .dates {
-        color:grey;
+        color:$secondaryColor;
       }
     }
   }
@@ -300,9 +339,17 @@ section {
   }
 }
 
+
+section#home article img {
+  width:100%;
+  height:100%;
+  //float:left;
+  object-fit: cover;
+}
+
 footer#home_footer {
   width:100%;
-  height:150px;
+  // height:150px;
   background:$secondaryColor;
   padding:1% 5%;
   box-sizing: border-box;
@@ -311,14 +358,20 @@ footer#home_footer {
 
   #sns {
 
+    text-align: center;
+
     div {
       display: inline-block;
       height:40px;
       width:40px;
 
       a i {
-        font-size:30px;
+        font-size: 2em;
         color:$fontSecondColor;
+
+        @include phone {
+          font-size:1.5em;
+        }
 
         &:hover {
           opacity:0.8;
@@ -329,9 +382,10 @@ footer#home_footer {
   }
 
   .logos {
+    text-align: center;
     img {
-
-      max-width:30%
+      max-width:30%;
+      min-width:100px;
     }
   }
 
@@ -347,6 +401,11 @@ footer#home_footer {
 
   #address {
     text-align: right;
+
+    @include phone {
+      font-size: 0.8em;
+      text-align: center;
+    }
   }
 }
 
@@ -404,4 +463,13 @@ footer#home_footer {
   }
 
 
+}
+
+section#page, section#article {
+  margin:3% 0;
+  min-height:500px;
+
+  @include phone {
+    min-height:50px;
+  }
 }

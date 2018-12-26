@@ -1,0 +1,4 @@
+- download of the program pdf ---> for phones only show that - bc tables are too big
+- read more https://www.elegantthemes.com/blog/tips-tricks/how-to-customize-the-wordpress-read-more-link-text
+- menu in footer
+- galerie for actual comitee

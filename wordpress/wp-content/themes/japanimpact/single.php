@@ -13,35 +13,9 @@ include("settings.php");
 
   <?php include("header.php"); ?>
 
+  <section id="article">
 
-  <div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      1 of 3
-    </div>
-    <div class="col-md-auto">
-      Variable width content
-    </div>
-    <div class="col col-lg-2">
-      3 of 3
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col-md-auto">
-      Variable width content
-    </div>
-    <div class="col col-lg-2">
-      3 of 3
-    </div>
-  </div>
-</div>
-
-
-  <section>
-
+          <div class="container">
 
     <div class="category">
 
@@ -50,7 +24,7 @@ include("settings.php");
         the_post();
 
         ?>
-        <h2><?php the_title(); ?></h2>
+        <h2><?php the_title('<h1 class="entry-title">', '</h1>'); ?></h2>
         <?php
         the_content();
 
@@ -58,7 +32,8 @@ include("settings.php");
 
       ?>
 
-    </div>
+          </div>
+              </div>
 
 
   </section>

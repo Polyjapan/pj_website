@@ -31,7 +31,8 @@ Tags: japanimpact
   font-family: arial; }
 
 a, a:hover {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #d21e2e; }
 
 h1 {
   font-size: 2.5em;
@@ -39,9 +40,10 @@ h1 {
   font-weight: bold; }
 
 h2 {
-  font-size: 2em;
+  font-size: 2.1em;
   text-transform: uppercase;
-  font-family: primaryFont; }
+  font-family: primaryFont;
+  font-weight: bold; }
 
 h3 {
   font-family: primaryFont;
@@ -52,35 +54,55 @@ header nav.navbar {
   width: 100%;
   background: white;
   z-index: 10; }
+  header nav.navbar .nav-item.active .nav-link {
+    /*current link*/
+    color: #d21e2e; }
+  header nav.navbar .nav-item .nav-link {
+    color: #3d4556; }
+    header nav.navbar .nav-item .nav-link:hover {
+      opacity: 0.5; }
   header nav.navbar button {
     margin: 10px; }
   header nav.navbar div#bs-example-navbar-collapse-1 {
     padding: 10px; }
   header nav.navbar .lang-item {
     display: inline; }
-    header nav.navbar .lang-item a {
-      color: red; }
-      header nav.navbar .lang-item a span {
-        color: red; }
+header .dropdown-menu {
+  background: white;
+  border-width: 0 0 0 2px;
+  padding: 0; }
+  @media (max-width: 575.98px) {
+    header .dropdown-menu {
+      background: none; } }
 header div.poster div#ji_header {
-  height: 550px;
   width: 100%;
   overflow: hidden;
   text-align: center; }
+  @media (min-width: 1650px) {
+    header div.poster div#ji_header {
+      height: 550px; } }
+  @media (max-width: 1300px) {
+    header div.poster div#ji_header {
+      height: 300px; } }
   header div.poster div#ji_header img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
     object-position: 50% 50%; }
+    @media (max-width: 1300px) {
+      header div.poster div#ji_header img {
+        height: 100%; } }
 header div#logo {
   margin-top: -50px;
   text-align: center; }
   header div#logo img {
     margin: auto; }
+    @media (max-width: 575.98px) {
+      header div#logo img {
+        width: 200px; } }
 
 section #date {
   text-transform: uppercase;
-  margin: 2% auto;
+  margin: 4% auto;
   text-align: center;
   font-size: 2em;
   width: 50%; }
@@ -88,11 +110,14 @@ section #date {
     section #date {
       width: 70%; } }
   section #date .bandeau {
-    background: #555555;
+    background: #3d4556;
     color: white;
     width: 100%;
     margin-bottom: 10px;
     font-size: 1.5em; }
+    @media (max-width: 1300px) {
+      section #date .bandeau {
+        font-size: 0.9em; } }
   section #date #countdown {
     display: flex;
     justify-content: center; }
@@ -100,25 +125,27 @@ section #date {
       margin: 0 0.5%;
       width: 100%; }
       section #date #countdown div span.nb {
-        background: red;
+        background: #d21e2e;
         display: block;
         color: white;
         text-align: center;
         font-size: 3em; }
       section #date #countdown div span.word {
-        color: red;
+        color: #d21e2e;
         font-size: 1.4em; }
+        @media (max-width: 575.98px) {
+          section #date #countdown div span.word {
+            font-size: 1em; } }
 
 section {
   text-align: justify; }
   section h2.category-title {
     font-size: 3em;
     text-indent: 5%;
-    height: 10px;
     font-style: italic;
     font-weight: bold; }
   section .category {
-    margin: 5% 0; }
+    margin: 2% 0 5%; }
     section .category div.article {
       border: 10px blue solid;
       border-width: 20px 0 0;
@@ -131,38 +158,53 @@ section {
         font-weight: bold; }
       section .category div.article img {
         width: 100%;
-        height: 200px;
         object-fit: cover; }
       section .category div.article .dates {
-        color: grey; }
+        color: #3d4556; }
   section article p {
     margin: 1% 0; }
   section article img {
     width: 100%; }
 
+section#home article img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
+
 footer#home_footer {
   width: 100%;
-  height: 150px;
-  background: #555555;
+  background: #3d4556;
   padding: 1% 5%;
   box-sizing: border-box;
   justify-content: center;
-  color: white; }
-  footer#home_footer #sns div {
-    display: inline-block;
-    height: 40px;
-    width: 40px; }
-    footer#home_footer #sns div a i {
-      font-size: 30px;
-      color: white; }
-      footer#home_footer #sns div a i:hover {
-        opacity: 0.8; }
-  footer#home_footer .logos img {
-    max-width: 30%; }
+  color: lightgrey; }
+  footer#home_footer #sns {
+    text-align: center; }
+    footer#home_footer #sns div {
+      display: inline-block;
+      height: 40px;
+      width: 40px; }
+      footer#home_footer #sns div a i {
+        font-size: 2em;
+        color: lightgrey; }
+        @media (max-width: 575.98px) {
+          footer#home_footer #sns div a i {
+            font-size: 1.5em; } }
+        footer#home_footer #sns div a i:hover {
+          opacity: 0.8; }
+  footer#home_footer .logos {
+    text-align: center; }
+    footer#home_footer .logos img {
+      max-width: 30%;
+      min-width: 100px; }
   footer#home_footer #importantLinks ul {
     list-style: none; }
   footer#home_footer #address {
     text-align: right; }
+    @media (max-width: 575.98px) {
+      footer#home_footer #address {
+        font-size: 0.8em;
+        text-align: center; } }
 
 #plannings {
   margin: 40px auto;
@@ -182,7 +224,7 @@ footer#home_footer {
         cursor: pointer; }
 
 #partners a h4 {
-  color: #555555;
+  color: #3d4556;
   font-weight: bold;
   margin: 5% 0 2%;
   text-align: center; }
@@ -192,5 +234,12 @@ footer#home_footer {
   max-width: 95%;
   margin: auto;
   display: block; }
+
+section#page, section#article {
+  margin: 3% 0;
+  min-height: 500px; }
+  @media (max-width: 575.98px) {
+    section#page, section#article {
+      min-height: 50px; } }
 
 /*# sourceMappingURL=style.css.map */

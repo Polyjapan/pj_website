@@ -120,7 +120,7 @@ endwhile; endif;
     foreach($p as $name => $plan) {
       // echo "<h1>" . $day . "</h1>";
 
-      $day_title = $day_translation[$day][pll_current_language()];
+      $day_title = $translation[$day][pll_current_language()];
       $color = $zone_colors[$name];
 
       ?>
@@ -175,7 +175,7 @@ endwhile; endif;
   $num = 0;
   for ($d=0; $d < sizeof($planning); $d++) {
     for ($i=1; $i <= sizeof($rooms); $i++) {
-      $day = $day_translation[array_keys($planning)[$d]][pll_current_language()];
+      $day = $translation[array_keys($planning)[$d]][pll_current_language()];
       $zone = array_keys($rooms)[$i-1];
       $color = $zone_colors[$zone];
 
