@@ -68,50 +68,47 @@ include("settings.php");
                 endif;
                 ?>
 
-                <div class="col-md-4"  id="post-<?php the_ID(); ?>">
+                <div class="col-lg-4"  id="post-<?php the_ID(); ?>">
 
-                    <img src="  <?php echo $meta['img'][0]; ?>   " alt=""/>
-
-                  <h3 class="entry-title"  style="color:<?php echo $colors[$c]; ?>"><?php the_title(); ?></h3>
-
-
-                  <span class="dates">
                     <?php
 
-                    $day = $translation[$meta['day'][0]][pll_current_language()];
-                    $at = (pll_current_language() == "en") ? " at " : " en ";
+                    $day = ucfirst($translation[$meta['day'][0]][pll_current_language()]);
+                    $at = $translation['at'][pll_current_language()];
+                    $room = ucfirst($meta["room"][0]);
 
-                    echo $day . "," . $meta['from'][0] . " - " . $meta['to'][0] . $at . $meta["room"][0];
+                    $date =  $day . "," . $meta['from'][0] . " - " . $meta['to'][0] . " ". $at." " . $room;
 
                     ?>
-                  </span>
 
-                  <div class="entry-content">
-                    <?php echo wp_trim_words( get_the_content(), 10, '...' ); ?>
-                    <a href="<?php the_permalink(); ?>">Read More</a>
+                  <div class="grid">
+                    <figure class="effect-honey">
+                      <img src="<?php echo $meta['img'][0]; ?>" alt="<?php the_title(); ?>"/>
+                      <figcaption class="<?php echo $c ?>">
+                        <h2><?php the_title(); ?> <i><?php echo $date; ?></i></h2>
+                        <a href="<?php the_permalink(); ?>">View more</a>
+                      </figcaption>
+                    </figure>
                   </div>
 
 
-                </div>
-                <!--
-              </div> -->
-              <?php
-            endwhile;
-            ?>
-          </div>
-          <?php
-        endif;
-        ?>
+              </div>
 
-      </div>
+            <?php
+          endwhile;
+          ?>
+        </div>
+        <?php
+      endif;
+      ?>
 
+    </div>
 
 
-      <?php
-    }
-    ?>
+    <?php
+  }
+  ?>
 
-  </div>
+</div>
 
 </section>
 

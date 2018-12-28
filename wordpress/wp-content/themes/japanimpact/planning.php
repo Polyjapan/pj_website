@@ -1,6 +1,4 @@
 
-
-
 <style media="screen">
 
 #plannings {
@@ -19,6 +17,13 @@ td {
   max-width: 150px; */
 }
 
+td a {
+  color:white;
+  text-transform: capitalize;
+  font-family:primaryFont;
+  font-size: 1.2em;
+}
+
 td.offset {
   border:none;
 }
@@ -30,15 +35,35 @@ th {
   background:lightgrey;
   border:1px solid black;
   font-weight: bold;
+  color:black;
   text-shadow:white 1px 1px 0px,white -1px 1px 0px,white 1px -1px 0px,white -1px -1px 0px;
+  max-width: 100px;
+  text-transform: uppercase;
+}
+
+th.room {
+  color:white;
+  text-shadow:black 1px 1px 0px,black -1px 1px 0px,black 1px -1px 0px,black -1px -1px 0px;
 }
 </style>
 
+<br>
+<a target="_blank" id="download_link" href="<?php echo $download_sa ?>">
+  <h3 style="text-align:center">>> <?php echo $translation["sa"][pll_current_language()]. " : ".$translation["download"][pll_current_language()] ; ?> <<
+  </h3>
+</a>
+<a target="_blank" id="download_link" href="<?php echo $download_di; ?>">
+  <h3 style="text-align:center">
+    >> <?php echo $translation["di"][pll_current_language()]." : ".  $translation["download"][pll_current_language()] ; ?> <<
+  </h3>
+</a>
+
+
+<br>
 
 <div id="plannings">
 
   <?php
-
 
   // obtain all necessary posts and get their slot time
   $args = array(
@@ -117,10 +142,12 @@ endwhile; endif;
   $i = 0;
   foreach($planning as $day => $p) {
 
+    $day_title = $translation[$day][pll_current_language()];
+
     foreach($p as $name => $plan) {
       // echo "<h1>" . $day . "</h1>";
 
-      $day_title = $translation[$day][pll_current_language()];
+
       $color = $zone_colors[$name];
 
       ?>
@@ -135,7 +162,7 @@ endwhile; endif;
         <tr>
           <td class="offset"></td>
           <?php foreach(reset($plan) as $room=>$k){
-            echo '<th style="background:'.$color.'" scope="col">'. $room . '</th>';
+            echo '<th class="room" style="background:'.$color.'" scope="col">'. $room . '</th>';
           } ?>
         </tr>
 
@@ -170,18 +197,28 @@ endwhile; endif;
 </div>
 
 <div id="buttons-planning">
+
+
   <?php
 
   $num = 0;
   for ($d=0; $d < sizeof($planning); $d++) {
+    $day = $translation[array_keys($planning)[$d]][pll_current_language()];
+    echo '<div class="row justify-content-md-center mb-2 mt-2">';
+
+    echo '<div class="col-sm-1">';
+    echo '<span class="day">' . $day . '</span>' ;
+    echo '</div>';
     for ($i=1; $i <= sizeof($rooms); $i++) {
-      $day = $translation[array_keys($planning)[$d]][pll_current_language()];
       $zone = array_keys($rooms)[$i-1];
       $color = $zone_colors[$zone];
 
-      echo '<span style="background:'.$color.'" class="button-planning" id="planning-'.$num.'">'. $day .' - '. $zone .'</span>';
+      echo '<div class="col-sm-1">';
+      echo '<span style="background:'.$color.'" class="button-planning" id="planning-'.$num.'">'. $zone .'</span>';
+      echo '</div>';
       $num++;
     }
+    echo '</div>';
   }
   ?>
   <!-- <span class="button-planning" id="planning-0">SAMEDI - 1</span>
@@ -199,6 +236,7 @@ endwhile; endif;
 <script type="text/javascript">
 
 $(document).ready(function(){
+
   $(".table#planning-0 ").show();
 
   $(".button-planning").click(function(){
@@ -212,4 +250,6 @@ $(document).ready(function(){
   });
 
 });
+
+
 </script>

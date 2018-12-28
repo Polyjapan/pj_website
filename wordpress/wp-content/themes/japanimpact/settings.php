@@ -2,6 +2,15 @@
 // header link
 $HEADER_LINK = "https://i.imgur.com/AURHTat.png";
 
+
+// link to download plannings
+$download_sa = custom_get_page_link("Download planning Saturday"); // name of download planning saturday
+$download_di = custom_get_page_link("Download planning Dimanche"); // name of download planning sunday
+
+
+// $download_sa = custom_get_page_link("ddl planning samedi"); // name of download planning saturday
+// $download_di = custom_get_page_link("ddl planning dimanche"); // name of download planning sunday
+
 // CATEGORIES SELECTION
 if(pll_current_language() == "fr") {
   $categories_all = "martial-arts,projections,conferences,animations,concerts,ateliers";
@@ -12,6 +21,7 @@ else {
   $category_slugs = preg_split("/\,/",$categories_all);
 }
 
+
 $colors = array( // can put in categories description and then retrieve
   "martial-arts" => "cyan",
   "martial-arts-en" => "cyan",
@@ -21,19 +31,16 @@ $colors = array( // can put in categories description and then retrieve
   "conferences-en" => "green",
   "animations" => "orange",
   "animations-en" => "orange",
-  "concerts" => "red",
-  "concerts-en" => "red",
+  "concerts" => "#3953a4",
+  "concerts-en" => "#3953a4",
   "ateliers" => "grey",
   "ateliers-en" => "grey"
 );
 
 
-$a = array("scenes" => array("room1" => array(),"room2" => array(),"room3" => array(),"room4" => array()));
-$b = array("auditoires" => array("room5" => array(),"room6" => array(),"room7" => array(),"room8" => array(),"room9" => array()));
-
 $rooms = array(
-  "scenes" => array("room1" => array(),"room2" => array(),"room3" => array(),"room4" => array()),
-  "auditoires" => array("room5" => array(),"room6" => array(),"room7" => array(),"room8" => array(),"room9" => array()),
+  // "scenes" => array("room1" => array(),"room2" => array(),"room3" => array(),"room4" => array()),
+  // "auditoires" => array("room5" => array(),"room6" => array(),"room7" => array(),"room8" => array(),"room9" => array()),
 
   "green" => array("aki" => array(),"natsu" => array(),"haru" => array(),"uki" => array(),"fuyu" => array()),
   "yellow" => array("matcha" => array(),"mochi" => array()), // yellow
@@ -99,6 +106,14 @@ $translation = array(
   "location" => array(
     "fr" => "Lieu",
     "en" => "Location"
+  ),
+  "at" => array(
+    "fr" => "à",
+    "en" => "at"
+  ),
+  "download" => array(
+    "fr" => "Télécharger les horaires",
+    "en" => "Download plannings"
   )
 );
 

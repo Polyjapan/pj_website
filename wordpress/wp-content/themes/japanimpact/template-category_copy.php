@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Program Page
+* Template Name: Program Page Copy
 */
 
 include("settings.php");
@@ -108,7 +108,6 @@ include("settings.php");
       <?php
     }
     ?>
-
   </div>
 
 </section>

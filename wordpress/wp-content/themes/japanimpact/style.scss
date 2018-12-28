@@ -17,8 +17,16 @@ $primaryColor: #d21e2e;
 $fontSecondColor: lightgrey;
 
 $phone-width: 575.98px;
-$tablet-width: 1300px;
+$tablet-width: 800px;
+$bigtablet-width: 1350px;
 $desktop-width: 1650px;
+
+$conferences: green;
+$projections: blue;
+$ateliers: grey;
+$animations: orange;
+$concerts: #3953a4;
+$martial-arts: cyan;
 
 @font-face {
   font-family: primaryFont;
@@ -33,6 +41,12 @@ $desktop-width: 1650px;
 
 @mixin tablet {
   @media (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin bigtablet {
+  @media (max-width: $bigtablet-width) {
     @content;
   }
 }
@@ -92,7 +106,7 @@ h3 {
 h4 {
   text-transform: uppercase;
   text-align: left;
-    font-family: primaryFont;
+  font-family: primaryFont;
 }
 
 // nav.navbar {
@@ -128,6 +142,10 @@ header {
       color:$primaryColor;
       font-weight: bold;
       text-transform: uppercase;
+    }
+    .current-menu-item a { /*current sublink*/
+      color:$primaryColor;
+      font-weight: bold;
 
     }
 
@@ -272,7 +290,7 @@ section #date {
     width:100%;
     margin-bottom:10px;
     font-size: 1.5em;
-    @include tablet {
+    @include bigtablet {
       font-size:0.9em;
     }
   }
@@ -344,6 +362,7 @@ section {
 
       img {
         width:100%;
+        height:250px;
         object-fit: cover;
 
       }
@@ -420,7 +439,7 @@ footer#home_footer {
 
       @include tablet{
 
-          max-width:30%;
+        max-width:30%;
       }
     }
   }
@@ -455,7 +474,19 @@ footer#home_footer {
 }
 
 
+#download_link {
+  font-size: 0.8em;
+  display:none;
+  @include tablet {
+    display:block;
+  }
+}
+
 #plannings {
+
+  @include tablet {
+    display:none;
+  }
 
   margin:40px auto;
   max-width: 90%;
@@ -466,19 +497,26 @@ footer#home_footer {
 
   #buttons-planning {
     text-align: center;
+    font-size: 1.2em;
 
-    span{
+    span.button-planning{
       display:inline-block;
       background:grey;
-      width:10%;
-      margin:5px;
+      width:100%;
+      height:100%;
+      text-align: 5px;
       font-weight: bold;
-      text-shadow:white 1px 1px 0px,white -1px 1px 0px,white 1px -1px 0px,white -1px -1px 0px;
+      color:white;
+      text-shadow:black 1px 1px 0px,black -1px 1px 0px,black 1px -1px 0px,black -1px -1px 0px;
 
       &:hover {
         cursor:pointer;
       }
+    }
 
+    .day {
+      font-weight: bold;
+      text-transform: capitalize;
     }
   }
 }
@@ -534,4 +572,182 @@ section#page, section#article {
   background:$primaryColor;
   color:white;
   padding:6px 10px;
+}
+
+
+
+
+.grid {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  text-align: center;
+}
+
+/* Common style */
+.grid figure {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  width: 100%;
+  background: #3085a3;
+  text-align: center;
+  cursor: pointer;
+}
+
+.grid figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+  opacity: 0.8;
+}
+
+.grid figure figcaption {
+  padding: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+  pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+  z-index: 1000;
+  text-indent: 200%;
+  white-space: nowrap;
+  font-size: 0;
+  opacity: 0;
+}
+
+.grid figure h2 {
+  word-spacing: -0.15em;
+  font-weight: 300;
+  font-size: 1.3em;
+
+  i {
+    display:block;
+    word-spacing: 0;
+    text-transform: none;
+  }
+}
+
+.grid figure h2 span {
+  font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+  margin: 0;
+}
+
+.grid figure p {
+  letter-spacing: 1px;
+  font-size: 68.5%;
+}
+
+/*---------------*/
+/***** Honey *****/
+/*---------------*/
+
+figure.effect-honey {
+  background: #4a3753;
+}
+
+figure.effect-honey img {
+  opacity: 0.9;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+figure.effect-honey:hover img {
+  opacity: 0.5;
+}
+
+@mixin before($color){
+  &::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    content: '';
+    -webkit-transform: translate3d(0,10px,0);
+    transform: translate3d(0,10px,0);
+
+    background: $color;
+  }
+}
+figure.effect-honey figcaption{
+  &.projections {
+    @include before($projections);
+  }
+  &.martial-arts {
+    @include before($martial-arts);
+  }
+  &.ateliers {
+    @include before($ateliers);
+  }
+  &.concerts {
+    @include before($concerts);
+  }
+  &.conferences {
+    @include before($conferences);
+  }
+  &.animations {
+    @include before($animations);
+  }
+
+}
+
+
+figure.effect-honey h2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1em 1.5em;
+  width: 100%;
+  text-align: left;
+  -webkit-transform: translate3d(0,-30px,0);
+  transform: translate3d(0,-30px,0);
+}
+
+figure.effect-honey h2 i {
+  font-style: normal;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0,-30px,0);
+  transform: translate3d(0,-30px,0);
+}
+
+figure.effect-honey figcaption::before,
+figure.effect-honey h2 {
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+}
+
+figure.effect-honey:hover figcaption::before,
+figure.effect-honey:hover h2,
+figure.effect-honey:hover h2 i {
+  opacity: 1;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
 }
