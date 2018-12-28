@@ -15,25 +15,44 @@ include("settings.php");
 
   <section id="article">
 
-          <div class="container">
+    <div class="container">
 
-    <div class="category">
+      <div class="category">
 
-      <?php
-      while ( have_posts() ) :
-        the_post();
+        <?php
+        while ( have_posts() ) :
+          the_post();
+
+          ?>
+
+
+          <div class="row mb-2 mt-12">
+            <div class="col-sm-12">
+
+              <img class="article_img" src="  <?php echo get_post_custom()['img'][0]; ?>   " alt=""/>
+
+            </div>
+          </div>
+
+          <h2><?php the_title('<h1 class="entry-title">', '</h1>'); ?></h2>
+
+          <div class="row mb-2 mt-12">
+            <div class="col-sm-12">
+              <?php the_content(); ?>
+            </div>
+          </div>
+
+          <?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
+
+
+          <?php
+
+        endwhile;
 
         ?>
-        <h2><?php the_title('<h1 class="entry-title">', '</h1>'); ?></h2>
-        <?php
-        the_content();
 
-      endwhile;
-
-      ?>
-
-          </div>
-              </div>
+      </div>
+    </div>
 
 
   </section>

@@ -1,52 +1,81 @@
+<?php include("settings.php") ?>
+
 <footer id="home_footer">
 
   <div class="container">
     <div class="row">
+      <div id="sns" class="col-md-4 mt-2">
+
+        <div class="col-md-12">
+          <h4><?php echo $translation["follow"][pll_current_language()] ?></h4>
+        </div>
+        <div class="links col-md-12 mt-3">
 
 
-      <div id="sns" class="col-sm-4 mt-2">
-        <div class="">
-          <a href="https://www.facebook.com/japanimpact.ch">
-            <i class="fab fa-facebook-f"></i>
-          </a>
+          <div class="">
+            <a href="https://www.facebook.com/japanimpact.ch">
+              <i class="fab fa-facebook-f"></i>
+            </a>
 
-        </div>
-        <div class="">
+          </div>
+          <div class="">
 
-          <a href="https://twitter.com/japanimpact">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </div>
-        <div class="">
+            <a href="https://twitter.com/japanimpact">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+          <div class="">
 
-          <a href="https://japan-impact.ch/fr/contact/">
-            <i class="fab fa-instagram"></i>
-          </a>
+            <a href="https://japan-impact.ch/fr/contact/">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+          <div class="">
+            <a href="https://www.youtube.com/user/JapanImpactOfficiel">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+          <div class="">
+            <a href="https://www.addthis.com/bookmark.php?v=250">
+              <i class="fas fa-plus"></i>
+            </a>
+          </div>
+          <div class="">
+            <a href="https://japan-impact.ch/fr/contact/">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
         </div>
-        <div class="">
-          <a href="https://www.addthis.com/bookmark.php?v=250">
-            <i class="fas fa-plus"></i>
-          </a>
-        </div>
-        <div class="">
-          <a href="https://www.youtube.com/user/JapanImpactOfficiel">
-            <i class="fab fa-youtube"></i>
-          </a>
-        </div>
-        <div class="">
-          <a href="https://japan-impact.ch/fr/contact/">
-            <i class="fas fa-envelope"></i>
-          </a>
+
+
+        <div class="col-md-12 mt-3">
+          <p>
+            Japan Impact <br>
+            PolyJapan – AGEPoly <br>
+            CP16 – Esplanade 13 <br>
+            CH-1015 Lausanne
+          </p>
+
+
         </div>
       </div>
 
-      <div class="logos col-sm-3 mb-2 mt-2" >
-        <a href="https://polyjapan.epfl.ch/">
-          <img  src="https://polyjapan.epfl.ch/wp-content/uploads/2018/12/Polyjapan-simplifi_small.png" alt=""/>
-        </a>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_EPFL.svg/400px-Logo_EPFL.svg.png" alt=""/>
-        <img src="https://agepoly.ch/static/media/uploads/.thumbnails/logo_agepoly_-_horizontal.png/logo_agepoly_-_horizontal-369x91.png" alt=""/>
+      <div class="logos col-md-3 mb-2 mt-2" >
 
+        <div class="col-sm-12">
+
+
+          <h4><?php echo $translation["partners"][pll_current_language()] ?></h4>
+
+        </div>
+
+        <div class="col-sm-12">
+          <a href="https://polyjapan.epfl.ch/">
+            <img  src="https://japan-impact.ch/wp-content/uploads/2018/12/Polyjapan-simplifié_big.png" alt=""/>
+          </a>
+          <a href="https://www.epfl.ch/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_EPFL.svg/400px-Logo_EPFL.svg.png" alt=""/></a>
+          <a href="https://agepoly.ch/"><img src="https://agepoly.ch/static/media/uploads/.thumbnails/logo_agepoly_-_horizontal.png/logo_agepoly_-_horizontal-369x91.png" alt=""/></a>
+        </div>
 
       </div>
       <!--
@@ -60,26 +89,34 @@
     </ul>
   </div> -->
 
-  <div id="address"  class="col-sm-5 mb-2 mt-2">
-    Ecole Polytechnique Fédérale de Lausanne (EPFL)<br/>
-    Avenue Piccard 2, 1015 Ecublens, Suisse<br/>
+  <div id="address"  class="col-md-5 mb-2 mt-2">
+
+    <div class="col-sm-12">
+      <h4><?php echo $translation["location"][pll_current_language()] ?></h4>
+    </div>
+
+    <div class="col-sm-12">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2117.0023629014577!2d6.566656213981249!3d46.51974059231255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c30fe6ab1ee13%3A0x83081fc8c8e14b29!2sAvenue+Piccard+2%2C+1015+Ecublens!5e0!3m2!1sen!2sch!4v1545933880339" width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <br>
+      Ecole Polytechnique Fédérale de Lausanne (EPFL),
+      Avenue Piccard 2, 1015 Ecublens, Suisse<br/>
+    </div>
+
   </div>
 
-</div>
-
-<div class="row justify-content-md-center">
-  <div class="col-sm-12 text-center">
-    <br>
-    japan-impact © 2019
-  </div>
-
-</div>
 
 </div>
 
 
 </footer>
 
+
+<div id="copyright">
+  japan-impact © 2019
+
+</div>
+
+<?php wp_footer() ?>
 
 </body>
 </html>

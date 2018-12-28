@@ -7,7 +7,7 @@
 
 
   <?php
-  // 
+  //
   // if ( is_front_page() && is_home() ) {
   //   // Default homepage
   //   echo "default homepage";
@@ -60,10 +60,11 @@
     		?>
     	</div><!-- .entry-content -->
 
+      <?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<br> <br><footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
+
 
       </div>
 
-          	<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
 
     </article><!-- #post-## -->
 <?php

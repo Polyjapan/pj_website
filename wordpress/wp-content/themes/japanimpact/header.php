@@ -1,5 +1,6 @@
-
 <header>
+
+  <?php include('settings.php') ?>
 
   <div class="poster">
 
@@ -34,7 +35,7 @@
 
 
         ?>
-        
+
         <!-- <ul id="languages"><?php pll_the_languages();?></ul> -->
 
       </nav>
@@ -49,7 +50,7 @@
   </nav> -->
   <div id="ji_header">
 
-    <img alt="header" src="<?php header_image(); ?>"/>
+    <img alt="header" src="<?php echo $HEADER_LINK; ?>"/>
 
   </div>
 </div>

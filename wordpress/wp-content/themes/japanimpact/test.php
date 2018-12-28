@@ -1,55 +1,82 @@
+<img width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/comite_normal.png" alt="" class="alignnone size-full wp-image-169" />
 
-<div id="partners">
 
-<a href="#" target="_blank"></a>
-
-  <div class="row mt-25 mb-25">
-
-    <div class="col-sm-4">
-      <img src="https://www.japan-impact.ch/wp-content/uploads/2014/09/EPFL_250x100.jpg" alt="">
-
-      <a href="#"><h4>L’Ecole Polytechnique Fédérale de Lausanne</h4></a>
-
-      <p>Il s’agit de notre chère école, car nous restons avant tout des étudiants, qui nous aide à réaliser ce projet.</p>
-    </div>
-    <div class="col-sm-4">
-      <img src="https://www.japan-impact.ch/wp-content/uploads/2014/09/AGEPoly_250x100.jpg" alt="">
-
-      <a href="#"><h4>Association Générale des Etudiants de l’EPFL</h4></a>
-
-      <p>Il s’agit de notre chère école, car nous restons avant tout des étudiants, qui nous aide à réaliser ce projet.</p>
-    </div>
-    <div class="col-sm-4">
-      <img src="https://japan-impact.ch/wp-content/uploads/2017/12/Polyjapan-simplifi%C3%A9.png" alt="">
-
-      <a href="#"><h4>PolyJapan</h4></a>
-
-      <p>PolyJapan est l’association qui organise Japan Impact depuis 2009 et qui cherche à promouvoir la culture japonaise sur le campus de l’EPFL. Elle est également à l’origine du premier Polymanga, en 2005, qui avait eu lieu à l’EPFL.</p>
-    </div>
+<div class="row mt-25 mb-25 justify-content-md-center">
+  <div class="col-sm-6"><a href="https://japan-impact.ch/wp-content/uploads/2018/12/presidence.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/presidence.png" alt=""  class="alignnone size-full wp-image-189" /></a>
   </div>
-  <div class="row mt-25 mb-25">
-
-    <div class="col-sm-4">
-      <img src="https://www.japan-impact.ch/wp-content/uploads/2014/09/EPFL_250x100.jpg" alt="">
-
-      <a href="#"><h4>L’Ecole Polytechnique Fédérale de Lausanne</h4></a>
-
-      <p>Il s’agit de notre chère école, car nous restons avant tout des étudiants, qui nous aide à réaliser ce projet.</p>
-    </div>
-    <div class="col-sm-4">
-      <img src="https://www.japan-impact.ch/wp-content/uploads/2014/09/EPFL_250x100.jpg" alt="">
-
-      <a href="#"><h4>L’Ecole Polytechnique Fédérale de Lausanne</h4></a>
-
-      <p>Il s’agit de notre chère école, car nous restons avant tout des étudiants, qui nous aide à réaliser ce projet.</p>
-    </div>
-    <div class="col-sm-4">
-      <img src="https://www.japan-impact.ch/wp-content/uploads/2014/09/EPFL_250x100.jpg" alt="">
-
-      <a href="#"><h4>L’Ecole Polytechnique Fédérale de Lausanne</h4></a>
-
-      <p>Il s’agit de notre chère école, car nous restons avant tout des étudiants, qui nous aide à réaliser ce projet.</p>
-    </div>
+  <div class="col-sm-6"><a href="http://localhost/pj_website/wordpress/wp-content/uploads/2018/12/mathieu.png" target="_blank">Pro guyz</a>
   </div>
+  <div class="col-sm-6"><a href="https://japan-impact.ch/wp-content/uploads/2018/12/comm.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/comm.png" alt="" class="alignnone size-full wp-image-186" /></a>
+  </div>
+  <div class="col-sm-6"><a href="https://japan-impact.ch/wp-content/uploads/2018/12/deco.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/deco.png" alt=""  class="alignnone size-full wp-image-187" /></a>
+  </div>
+  <div class="col-sm-6"><a href="https://japan-impact.ch/wp-content/uploads/2018/12/log.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/log.png" alt="" class="alignnone size-full wp-image-188" /></a>
+  </div>
+  <div class="col-sm-6"><a href="https://japan-impact.ch/wp-content/uploads/2018/12/staff.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/staff.png" alt="" class="alignnone size-full wp-image-190" /></a>
+  </div>
+</div>
 
+
+<div class="row mt-25 mb-25 justify-content-md-center">
+
+  <div class="col-sm-4">
+    <a href="https://japan-impact.ch/wp-content/uploads/2018/12/mirko.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/mirko.png" alt="" class="alignnone size-full wp-image-178" /></a>
+  </div>
+  <div class="col-sm-4">
+    <a href="https://japan-impact.ch/wp-content/uploads/2018/12/maximeb.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/maximeb.png" alt=""  class="alignnone size-full wp-image-177" /></a>
+  </div>
+  <div class="col-sm-4">
+
+    <a href="https://japan-impact.ch/wp-content/uploads/2018/12/mathieu.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/mathieu.png" alt=""  class="alignnone size-full wp-image-176" /></a>
+  </div>
+</div>
+
+
+<div class="row mt-25 mb-25 justify-content-md-center">
+  <div class="col-sm-4">
+
+    <a href="https://japan-impact.ch/wp-content/uploads/2018/12/frank.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/frank.png" alt=""  class="alignnone size-full wp-image-174" /></a>
+  </div>
+  <div class="col-sm-4">
+
+    <a href="https://japan-impact.ch/wp-content/uploads/2018/12/kim.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/kim.png" alt=""  class="alignnone size-full wp-image-175" /></a>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+function myFunction(el) {
+var x = el.value
+
+// If the pressed keyboard button is "a" or "A" (using caps lock or shift), alert some text.
+if(x=="fun"){
+  document.getElementById("fun").classList.remove("hide");
+}
+}
+</script>
+
+Wanna have fun ? Type "fun"
+<input type="text" size="40" onkeyup="myFunction(this)">
+
+<style media="screen">
+.hide {
+  display:none;
+}
+</style>
+
+
+
+<div id="fun" class="row mt-25 mb-25 justify-content-md-center hide">
+  <div class="col-sm-4">
+
+    <a href="https://japan-impact.ch/wp-content/uploads/2018/12/adrienp.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/adrienp.png" alt=""  class="alignnone size-full wp-image-174" /></a>
+  </div>
+  <div class="col-sm-4">
+
+    <a href="https://japan-impact.ch/wp-content/uploads/2018/12/adrienp.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/adrienp.png" alt=""  class="alignnone size-full wp-image-174" /></a>
+  </div>
+  <div class="col-sm-4">
+
+    <a href="https://japan-impact.ch/wp-content/uploads/2018/12/adrienp.png" target="_blank"><img  width="100%" src="https://japan-impact.ch/wp-content/uploads/2018/12/adrienp.png" alt=""  class="alignnone size-full wp-image-174" /></a>
+  </div>
 </div>

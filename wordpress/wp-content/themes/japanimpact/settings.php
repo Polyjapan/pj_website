@@ -1,5 +1,6 @@
 <?php
-
+// header link
+$HEADER_LINK = "https://i.imgur.com/AURHTat.png";
 
 // CATEGORIES SELECTION
 if(pll_current_language() == "fr") {
@@ -86,6 +87,18 @@ $translation = array(
   "more" => array(
     "fr" => "Lire la suite",
     "en" => "Read More"
+  ),
+  "follow" => array(
+    "fr" => "Suivez-nous !",
+    "en" => "Follow us!"
+  ),
+  "partners" => array(
+    "fr" => "Partenaires",
+    "en" => "Partners"
+  ),
+  "location" => array(
+    "fr" => "Lieu",
+    "en" => "Location"
   )
 );
 

@@ -49,14 +49,31 @@ h3 {
   font-family: primaryFont;
   text-transform: uppercase; }
 
+h4 {
+  text-transform: uppercase;
+  text-align: left;
+  font-family: primaryFont; }
+
 header nav.navbar {
   position: fixed;
   width: 100%;
   background: white;
   z-index: 10; }
+  header nav.navbar ul#menu-main > li:nth-last-child(2) {
+    padding-left: 5%; }
+    @media (max-width: 1300px) {
+      header nav.navbar ul#menu-main > li:nth-last-child(2) {
+        padding-left: 0px; }
+        header nav.navbar ul#menu-main > li:nth-last-child(2) a {
+          background: none;
+          color: #d21e2e;
+          padding-left: 0;
+          font-weight: bold; } }
   header nav.navbar .nav-item.active .nav-link {
     /*current link*/
-    color: #d21e2e; }
+    color: #d21e2e;
+    font-weight: bold;
+    text-transform: uppercase; }
   header nav.navbar .nav-item .nav-link {
     color: #3d4556; }
     header nav.navbar .nav-item .nav-link:hover {
@@ -67,6 +84,9 @@ header nav.navbar {
     padding: 10px; }
   header nav.navbar .lang-item {
     display: inline; }
+    header nav.navbar .lang-item.current-lang a {
+      color: white;
+      background: #d21e2e; }
 header .dropdown-menu {
   background: white;
   border-width: 0 0 0 2px;
@@ -80,17 +100,15 @@ header div.poster div#ji_header {
   text-align: center; }
   @media (min-width: 1650px) {
     header div.poster div#ji_header {
-      height: 550px; } }
+      height: 600px; } }
   @media (max-width: 1300px) {
     header div.poster div#ji_header {
       height: 300px; } }
   header div.poster div#ji_header img {
     width: 100%;
     object-fit: cover;
-    object-position: 50% 50%; }
-    @media (max-width: 1300px) {
-      header div.poster div#ji_header img {
-        height: 100%; } }
+    object-position: 50% 50%;
+    height: 100%; }
 header div#logo {
   margin-top: -50px;
   text-align: center; }
@@ -178,33 +196,40 @@ footer#home_footer {
   box-sizing: border-box;
   justify-content: center;
   color: lightgrey; }
-  footer#home_footer #sns {
-    text-align: center; }
-    footer#home_footer #sns div {
-      display: inline-block;
-      height: 40px;
-      width: 40px; }
-      footer#home_footer #sns div a i {
-        font-size: 2em;
-        color: lightgrey; }
-        @media (max-width: 575.98px) {
-          footer#home_footer #sns div a i {
-            font-size: 1.5em; } }
-        footer#home_footer #sns div a i:hover {
-          opacity: 0.8; }
-  footer#home_footer .logos {
-    text-align: center; }
-    footer#home_footer .logos img {
-      max-width: 30%;
-      min-width: 100px; }
+  footer#home_footer #sns div.links div {
+    display: inline-block;
+    height: 40px;
+    width: 40px; }
+    footer#home_footer #sns div.links div a i {
+      font-size: 2em;
+      color: lightgrey;
+      padding: 0 2px 0 0; }
+      @media (max-width: 575.98px) {
+        footer#home_footer #sns div.links div a i {
+          font-size: 1.8em; } }
+      footer#home_footer #sns div.links div a i:hover {
+        opacity: 0.8; }
+  footer#home_footer .logos img {
+    max-width: 45%;
+    min-width: 100px;
+    margin: 5px 0; }
+    @media (max-width: 1300px) {
+      footer#home_footer .logos img {
+        max-width: 30%; } }
   footer#home_footer #importantLinks ul {
     list-style: none; }
-  footer#home_footer #address {
-    text-align: right; }
+  footer#home_footer #address > div {
+    text-align: right;
+    font-size: 0.8em; }
     @media (max-width: 575.98px) {
-      footer#home_footer #address {
+      footer#home_footer #address > div {
         font-size: 0.8em;
         text-align: center; } }
+
+#copyright {
+  background: #d21e2e;
+  color: white;
+  text-align: center; }
 
 #plannings {
   margin: 40px auto;
@@ -241,5 +266,17 @@ section#page, section#article {
   @media (max-width: 575.98px) {
     section#page, section#article {
       min-height: 50px; } }
+
+.article_img {
+  border: double 4px #d21e2e;
+  margin: 20px auto;
+  display: block;
+  max-width: 100%; }
+
+/*ADMIN EDIT LINKS*/
+.entry-footer a {
+  background: #d21e2e;
+  color: white;
+  padding: 6px 10px; }
 
 /*# sourceMappingURL=style.css.map */
