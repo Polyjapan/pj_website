@@ -6,7 +6,7 @@ include("head.php");
 
 <body>
 
-<?php get_header(); ?>
+  <?php get_header(); ?>
 
   <section id="home">
 
@@ -50,11 +50,14 @@ include("head.php");
 
   <?php
 
+  $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
   $args = array(
     'post_type' => 'post',
     'post_status' => 'publish',
-    'lang' => pll_current_language()
+    'lang' => pll_current_language(),
+    'posts_per_page' => 6,
+    'paged' => $paged
   );
 
   $arr_posts = new WP_Query( $args );
@@ -82,6 +85,7 @@ include("head.php");
             <header class="entry-header">
               <h2 class="entry-title"><?php the_title(); ?></h2>
             </header>
+            <span class="date"><?php echo get_the_date(); ?></span>
             <div class="entry-content">
               <?php echo wp_trim_words( get_the_content(), 110, '...' ); ?>
               <a href="<?php the_permalink(); ?>"><?php echo $translation["more"][pll_current_language()] ?></a>
@@ -93,16 +97,20 @@ include("head.php");
       </article>
       <?php
     endwhile;
+    ?>
+    <?php the_posts_pagination( array( 'mid_size'  => 2 ) ); ?>
+
+    <?php
   endif;
 
   ?>
 
 
-</div>
+  </div>
 
-</section>
+  </section>
 
-<br>
-<br>
+  <br>
+  <br>
 
-<?php get_footer(); ?>
+  <?php get_footer(); ?>

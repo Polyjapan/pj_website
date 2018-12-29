@@ -35,6 +35,8 @@ include("settings.php");
           </div>
 
           <h2><?php the_title('<h1 class="entry-title">', '</h1>'); ?></h2>
+          
+          <span class="date"><?php the_date(); ?></span>
 
           <div class="row mb-2 mt-12">
             <div class="col-sm-12">
