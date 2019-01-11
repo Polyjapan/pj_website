@@ -21,7 +21,6 @@ include("settings.php");
 
       <?php
 
-
       foreach ($category_slugs as $c) {
 
         $args = array(
@@ -36,7 +35,6 @@ include("settings.php");
 
 
         $category_name = get_category_by_slug( $c )->name;
-
 
         ?>
 
@@ -70,46 +68,64 @@ include("settings.php");
 
                 <div class="col-lg-4"  id="post-<?php the_ID(); ?>">
 
-                    <?php
+                  <?php
 
-                    $day = ucfirst($translation[$meta['day'][0]][pll_current_language()]);
+                  $dates = array();
+                  $plan_array = array_map('trim', explode(",",$meta['class'][0]));
+                  $day_array =  array_map('trim', explode(",",$meta['day'][0]));
+                  $from_array =  array_map('trim', explode(",",$meta['from'][0]));
+                  $to_array =  array_map('trim', explode(",",$meta['to'][0]));
+                  $room_array =  array_map('trim', explode(",",$meta['room'][0]));
+
+                  for ($i=0; $i < sizeof($day_array); $i++) {
+
+                    $day = ucfirst($translation[$day_array[$i]][pll_current_language()]);
                     $at = $translation['at'][pll_current_language()];
-                    $room = ucfirst($meta["room"][0]);
+                    $room = '<span class="room" style="background-color:'.$zone_colors[$plan_array[$i]].'">'.ucfirst($room_array[$i]).'</span>';
+                    $date = $day . "," . $from_array[$i] . " - " . $to_array[$i] . " ". $at." " . $room;
 
-                    $date =  $day . "," . $meta['from'][0] . " - " . $meta['to'][0] . " ". $at." " . $room;
+                    array_push($dates,$date);
+                  }
 
-                    ?>
+                  $dates = implode("<br>", $dates);
+
+                  ?>
 
                   <div class="grid">
                     <figure class="effect-honey">
                       <img src="<?php echo $meta['img'][0]; ?>" alt="<?php the_title(); ?>"/>
                       <figcaption class="<?php echo $c ?>">
-                        <h2><?php the_title(); ?> <i><?php echo $date; ?></i></h2>
+                        <h2><?php the_title(); ?> <i>
+                          <?php
+
+                            echo $dates;
+                            ?>
+                        </i></h2>
                         <a href="<?php the_permalink(); ?>">View more</a>
                       </figcaption>
                     </figure>
                   </div>
 
 
-              </div>
+                </div>
 
+                <?php
+              endwhile;
+              ?>
+            </div>
             <?php
-          endwhile;
+          endif;
           ?>
+
         </div>
+
+
         <?php
-      endif;
+      }
       ?>
 
     </div>
 
+  </section>
 
-    <?php
-  }
-  ?>
-
-</div>
-
-</section>
-
-<?php include("footer.php") ?>
+  <?php include("footer.php") ?>

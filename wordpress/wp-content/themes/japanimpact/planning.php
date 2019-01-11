@@ -1,51 +1,5 @@
 
-<style media="screen">
 
-#plannings {
-
-}
-
-table{
-  text-align: center;
-}
-
-td {
-  padding:5px;
-  border:1px solid black;
-  font-size:20px;
-  /* min-width: 100px;
-  max-width: 150px; */
-}
-
-td a {
-  color:white;
-  text-transform: capitalize;
-  font-family:primaryFont;
-  font-size: 1.2em;
-}
-
-td.offset {
-  border:none;
-}
-
-
-
-th {
-  font-size:20px;
-  background:lightgrey;
-  border:1px solid black;
-  font-weight: bold;
-  color:black;
-  text-shadow:white 1px 1px 0px,white -1px 1px 0px,white 1px -1px 0px,white -1px -1px 0px;
-  max-width: 100px;
-  text-transform: uppercase;
-}
-
-th.room {
-  color:white;
-  text-shadow:black 1px 1px 0px,black -1px 1px 0px,black 1px -1px 0px,black -1px -1px 0px;
-}
-</style>
 
 <br>
 <a target="_blank" id="download_link" href="<?php echo $download_sa ?>">
@@ -57,7 +11,9 @@ th.room {
     >> <?php echo $translation["di"][pll_current_language()]." : ".  $translation["download"][pll_current_language()] ; ?> <<
   </h3>
 </a>
+<br>
 
+<h3 style="color:red;text-transform:uppercase;text-align:center;">Sous réserve de modifications !!</h3>
 
 <br>
 
@@ -70,7 +26,7 @@ th.room {
     'post_type' => 'post',
     'post_status' => 'publish',
     'lang' => pll_current_language(),
-    'category_name' => $categories_all,
+    'category_name' => $categories_all .",". $interdit_category,
     'date_query' => array(
       array(
         'after'     => array(
@@ -96,47 +52,48 @@ th.room {
   $color = $colors[get_the_category()[0]->slug];
   $meta = get_post_custom();
 
-  //preg_match_all('/(?<=data\-planning\=\")[^\"]+(?=\")/', $str, $matches, PREG_OFFSET_CAPTURE);
+  $plan_array = array_map('trim', explode(",",$meta['class'][0]));
+  $day_array =  array_map('trim', explode(",",$meta['day'][0]));
+  $from_array =  array_map('trim', explode(",",$meta['from'][0]));
+  $to_array =  array_map('trim', explode(",",$meta['to'][0]));
+  $room_array =  array_map('trim', explode(",",$meta['room'][0]));
 
-  // // CORNER CASE : DOUBLE DATES --> split and create arrays
-  $plan = $meta['class'][0];
-  $day =  $meta['day'][0];
-  $from =  $meta['from'][0];
-  $to =  $meta['to'][0];
-  $room =  $meta['room'][0];
+  $is_complete = (strlen($plan_array[0])!=0) && (strlen($day_array[0])!=0) && (strlen($from_array[0])!=0) && (strlen($to_array[0])!=0) && (strlen($room_array[0])!=0); 
 
-  if(!empty($plan)) {
+  if(!empty($plan_array) && $is_complete) {
 
-    // create slot array
-    //foreach($matches[0] as $m){
-    // auditoires,di,10:00,12:00,room5
-    //list($plan, $day, $from, $to, $room) = preg_split ('/\,/', $m[0]);
+    for ($p=0; $p < sizeof($plan_array); $p++) {
+      $plan = $plan_array[$p];
+      $day = $day_array[$p];
+      $from = $from_array[$p];
+      $to = $to_array[$p];
+      $room = $room_array[$p];
 
-    $date_to = strtotime($to);
-    $date_from = strtotime($from);
-    $int1 = $date_to - $date_from;
-    $h = (int)date('H',$int1);
-    $m = (int)date('i',$int1);
-    $duration = $m/30 + 2*$h;
 
-    $curr = $date_from;
-    for($i = 0; $i < $duration-1; $i++){ // cancel rowspan -->  too much td
-      $curr = date("H:i", strtotime("+30 minutes",$curr));
-      array_push($planning[$day][$plan][$curr][$room], array(0, $name, $color, $id));
-      $curr = strtotime($curr);
+      $date_to = strtotime($to);
+      $date_from = strtotime($from);
+      $int1 = $date_to - $date_from;
+      $h = (int)date('H',$int1);
+      $m = (int)date('i',$int1);
+      $duration = $m/30 + 2*$h;
+
+      $curr = $date_from;
+      for($i = 0; $i < $duration-1; $i++){ // cancel rowspan -->  too much td
+        $curr = date("H:i", strtotime("+30 minutes",$curr));
+        array_push($planning[$day][$plan][$curr][$room], array(0, $name, $color, $id));
+        $curr = strtotime($curr);
+      }
+
+      array_push($planning[$day][$plan][$from][$room], array($duration, $name, $color, $id));
+
     }
-
-    array_push($planning[$day][$plan][$from][$room], array($duration, $name, $color, $id));
-    //}
   }
 
 endwhile; endif;
 
-
 ?>
 
 <div id="plannings">
-
 
   <?php
   $i = 0;
@@ -145,19 +102,16 @@ endwhile; endif;
     $day_title = $translation[$day][pll_current_language()];
 
     foreach($p as $name => $plan) {
-      // echo "<h1>" . $day . "</h1>";
-
 
       $color = $zone_colors[$name];
 
       ?>
 
-
       <table class="table" id="planning-<?php echo $i; ?>">
 
         <tr>
           <td class="offset"></td>
-          <th  scope="col" colspan="<?php echo sizeof(reset($plan)); ?>"><?php echo  $day_title ?></th>
+          <th class="table-day" scope="col" colspan="<?php echo sizeof(reset($plan)); ?>"><?php echo  $day_title ?></th>
         </tr>
         <tr>
           <td class="offset"></td>
@@ -172,7 +126,7 @@ endwhile; endif;
 
           $k1 = date("H:i",strtotime("+30 minutes", strtotime($k)));
 
-          echo '<th scope="row">'. $k . " - " . $k1 .'</th>';
+          echo '<th class="table-hour" scope="row">'. $k . " - " . $k1 .'</th>';
           foreach($v as $room){ // for each room
             if(empty($room)){ // for each non-empty activity
               echo '<td></td>';
@@ -214,42 +168,16 @@ endwhile; endif;
       $color = $zone_colors[$zone];
 
       echo '<div class="col-sm-1">';
-      echo '<span style="background:'.$color.'" class="button-planning" id="planning-'.$num.'">'. $zone .'</span>';
+      echo '<span style="background:'.$color.'" class="button-planning" id="planning-'.$num.'" onclick="buttonClick(this)">'. $zone .'</span>';
       echo '</div>';
       $num++;
     }
     echo '</div>';
   }
   ?>
-  <!-- <span class="button-planning" id="planning-0">SAMEDI - 1</span>
-  <span class="button-planning" id="planning-1">SA - 2</span>
-  <span class="button-planning" id="planning-2">SAMEDI - 3</span>
-  <span class="button-planning" id="planning-3">SA - 4</span>
-  <span class="button-planning" id="planning-4">SAMEDI - 5</span>
-  <span class="button-planning" id="planning-5">SA - 6</span>
-  <span class="button-planning" id="planning-6">SAMEDI - 1</span>
-  <span class="button-planning" id="planning-7">SA - 2</span> -->
+
 </div>
 
 </div>
 
-<script type="text/javascript">
-
-$(document).ready(function(){
-
-  $(".table#planning-0 ").show();
-
-  $(".button-planning").click(function(){
-
-
-    $(".table").each(function(){$(this).hide();});
-
-    var id = $(this).attr("id");
-    console.log(id);
-    $(".table#"+id).show();
-  });
-
-});
-
-
-</script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/js/planning.js' ?>"></script>

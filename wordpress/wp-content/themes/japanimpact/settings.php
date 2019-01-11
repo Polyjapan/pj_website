@@ -1,7 +1,8 @@
 <?php
 // header link
-$HEADER_LINK = "https://i.imgur.com/AURHTat.png";
-
+$HEADER_LINK = "https://i.imgur.com/AURHTat.png"; // header image link
+$PLANNING_IMG = "https://japan-impact.ch/wp-content/uploads/2019/01/planning_complet-4.jpg"; // planning plan image link
+$LOGO_URL = "https://upload.wikimedia.org/wikipedia/fr/5/52/Japan_Impact_Logo.png"; // logo link
 
 // link to download plannings
 $download_sa = custom_get_page_link("Download planning Saturday"); // name of download planning saturday
@@ -11,49 +12,72 @@ $download_di = custom_get_page_link("Download planning Dimanche"); // name of do
 // $download_sa = custom_get_page_link("ddl planning samedi"); // name of download planning saturday
 // $download_di = custom_get_page_link("ddl planning dimanche"); // name of download planning sunday
 
+
+
 // CATEGORIES SELECTION
 if(pll_current_language() == "fr") {
-  $categories_all = "martial-arts,projections,conferences,animations,concerts,ateliers";
+  //$categories_all = "martial-arts,projections,conferences,animations,concerts,ateliers,activites-continues"; // slugs of the categories in the program FR
+    $categories_all = "martial-arts,projections,conferences,animations,concerts-fr,ateliers,activites-continues"; // slugs of the categories in the program FR
   $category_slugs = preg_split("/\,/",$categories_all);
+  $interdit_category = "interdit"; // forbidden category slug FR
 }
 else {
-  $categories_all = "martial-arts-en,projections-en,conferences-en,animations-en,concerts-en,ateliers-en";
+  $categories_all = "martial-arts-en,projections-en,conferences-en,animations-en,concerts-en,ateliers-en,continuous-activities"; // slugs of the categories in the program EN
   $category_slugs = preg_split("/\,/",$categories_all);
+  $interdit_category = "forbidden"; // forbidden category slug EN
+  $interdit_id = "";
 }
 
+$interdit_id = get_category_by_slug($interdit_category)->term_id;
 
-$colors = array( // can put in categories description and then retrieve
-  "martial-arts" => "cyan",
-  "martial-arts-en" => "cyan",
-  "projections" => "blue",
-  "projections-en" => "blue",
-  "conferences" => "green",
-  "conferences-en" => "green",
-  "animations" => "orange",
-  "animations-en" => "orange",
+$colors = array(
+  // categories colors
+  // if colors change, need to change it in the css as well
+  "martial-arts" => "#00aeef",
+  "martial-arts-en" => "#00aeef",
+  "projections" => "#8178ca",
+  "projections-en" => "#8178ca",
+  "conferences" => "#39b54a",
+  "conferences-en" => "#39b54a",
+  "animations" => "#ffa92e",
+  "animations-en" => "#ffa92e",
   "concerts" => "#3953a4",
   "concerts-en" => "#3953a4",
   "ateliers" => "grey",
-  "ateliers-en" => "grey"
+  "ateliers-en" => "grey",
+  "continuous-activities" => "#ec008c",
+  "activites-continues" => "#ec008c",
+  "interdit" => "grey",
+  "forbidden" => "grey"
+);
+
+// zone colors
+$zone_colors = array(
+  "green" => "#0b8140",
+  "blue" => "#3953a4",
+  "yellow" => "#ffcd21",
+  "purple" => "#7c277d",
+  "red" => "#ed2024",
+  "orange" => "#f08821",
+  "pink" => "#f497c0"
 );
 
 
 $rooms = array(
-  // "scenes" => array("room1" => array(),"room2" => array(),"room3" => array(),"room4" => array()),
-  // "auditoires" => array("room5" => array(),"room6" => array(),"room7" => array(),"room8" => array(),"room9" => array()),
-
+  // zones, rooms
   "green" => array("aki" => array(),"natsu" => array(),"haru" => array(),"uki" => array(),"fuyu" => array()),
   "yellow" => array("matcha" => array(),"mochi" => array()), // yellow
   "pink" => array("myôga" => array(),"momiji" => array(), "ginkgo"=>array(), "sakura"=>array()), // pink
   "orange" => array("meiji" => array(),"edo" => array(), "mad café"=>array(), "edo"=>array(), "sengoku"=>array()), // orange
   "red" => array("tokyo" => array(),"kyoto" => array(), "osaka"=>array(), "nara"=>array(), "nagoya"=>array(), "nagano"=>array(), "sapporo"=>array()), // rouge
+  "blue" => array("matsuri" => array()), // blue
   "purple" => array("usagi" => array(),"kistune" => array(), "tanuki"=>array(), "shika"=>array()), // purple
-  "blue" => array("matsuri" => array()) // blue
+
 );
 
-$planning = array("sa" => array(), "di"=> array());
+$planning = array("sa" => array(), "di"=> array()); // days
 
-foreach ($rooms as $key => $value) {
+foreach ($rooms as $key => $value) { // hours
   $satursday = array(
     "10:00"=>$value, "10:30"=>$value, "11:00"=>$value, "11:30"=>$value,
     "12:00"=>$value, "12:30"=>$value, "13:00"=>$value, "13:30"=>$value,
@@ -69,19 +93,14 @@ foreach ($rooms as $key => $value) {
     "18:00"=>$value
   );
 
-  $planning["sa"][$key] = $satursday;
-  $planning["di"][$key] = $sunday;
+  $planning["sa"][$key] = $satursday; // saturday
+  $planning["di"][$key] = $sunday; // sunday
 }
 
-//https://drive.google.com/drive/u/2/folders/1Zui0knmCKMGOMmqI7-6H3d7kx03Uiqpv
+// example: 'Feb 16, 2019 10:00:00' // WARNING: it is important to keep the quote marks!
+$saturday_date = "'Feb 16, 2019 10:00:00'";
 
-// var_dump($plannings);
-
-// $slots_a = array("10:00"=>$a, "10:30"=>$a, "11:00"=>$a, "11:30"=>$a, "12:00"=>$a, "12:30"=>$a, "13:00"=>$a, "13:30"=>$a);
-// $slots_b = array("10:00"=>$b, "10:30"=>$b, "11:00"=>$b, "11:30"=>$b, "12:00"=>$b, "12:30"=>$b, "13:00"=>$b, "13:30"=>$b);
-// $p = array("scenes" => $slots_a, "auditoires"=>$slots_b);
-// $planning = array("sa" => $p, "di"=>$p);
-
+// manual translations
 $translation = array(
   "sa" => array(
     "fr" => "samedi",
@@ -114,17 +133,25 @@ $translation = array(
   "download" => array(
     "fr" => "Télécharger les horaires",
     "en" => "Download plannings"
-  )
+  ),
+  "dates" => array(
+    "fr" => "16 et 17 Février 2019", // DATES
+    "en" => "February 16th and 17th 2019"
+  ),
+  "countdown-d" => array(
+    "fr" => "jours",
+    "en" => "days"
+  ),
+  "countdown-h" => array(
+    "fr" => "heures",
+    "en" => "hours"
+  ),
+  "countdown-m" => array(
+    "fr" => "minutes",
+    "en" => "minutes"
+  ),
+  "countdown-s" => array(
+    "fr" => "secondes",
+    "en" => "seconds"
+  ),
 );
-
-$zone_colors = array(
-  "green" => "#0b8140",
-  "blue" => "#3953a4",
-  "yellow" => "#fedb16",
-  "purple" => "#7c277d",
-  "red" => "#ed2024",
-  "orange" => "#f08821",
-  "pink" => "#f497c0"
-
-);
-// filter dates

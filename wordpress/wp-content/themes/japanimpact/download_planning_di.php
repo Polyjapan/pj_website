@@ -3,7 +3,7 @@
 * Template Name: Downlaod planning Dimanche
 */
 $day_planning = "di";
-$height = "12";
+$height = "15";
 include("download_planning.php");
 
 ?>

@@ -26,7 +26,7 @@
           </div>
           <div class="">
 
-            <a href="https://japan-impact.ch/fr/contact/">
+            <a href="https://www.instagram.com/japan_impact/?hl=fr">
               <i class="fab fa-instagram"></i>
             </a>
           </div>
@@ -63,18 +63,16 @@
       <div class="logos col-md-3 mb-2 mt-2" >
 
         <div class="col-sm-12">
-
-
           <h4><?php echo $translation["partners"][pll_current_language()] ?></h4>
 
         </div>
 
         <div class="col-sm-12">
           <a href="https://polyjapan.epfl.ch/">
-            <img  src="https://japan-impact.ch/wp-content/uploads/2018/12/Polyjapan-simplifié_big.png" alt=""/>
+            <img  src="https://japan-impact.ch/wp-content/uploads/2018/12/Polyjapan-simplifié_big.png" alt="polyjapan logo"/>
           </a>
-          <a href="https://www.epfl.ch/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_EPFL.svg/400px-Logo_EPFL.svg.png" alt=""/></a>
-          <a href="https://agepoly.ch/"><img src="https://agepoly.ch/static/media/uploads/.thumbnails/logo_agepoly_-_horizontal.png/logo_agepoly_-_horizontal-369x91.png" alt=""/></a>
+          <a href="https://www.epfl.ch/"><img src="https://www.smartlivinglab.ch/files/logo-epfl-white.png" alt="epfl logo"/></a>
+          <a href="https://agepoly.ch/"><img src="https://agepoly.ch/static/media/uploads/.thumbnails/logo_agepoly_-_horizontal.png/logo_agepoly_-_horizontal-369x91.png" alt="agepoly logo"/></a>
         </div>
 
       </div>

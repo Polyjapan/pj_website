@@ -1,4 +1,3 @@
-
 <?php
 include("settings.php");
 include("head.php");
@@ -13,37 +12,29 @@ include("head.php");
     <div id="date" class="">
 
       <div class="bandeau">
-        16 et 17 Février 2019
+        <?php echo $translation["dates"][pll_current_language()] ?>
       </div>
-
-      <!-- <script type="text/javascript" src="countdown.js"></script> -->
 
       <div id="countdown">
 
         <div>
           <span class="nb" id="days">123</span>
-          <span class="word">days</span>
+          <span class="word"><?php echo $translation["countdown-d"][pll_current_language()] ?></span>
         </div>
         <div>
           <span class="nb" id="hours">123</span>
-          <span class="word">hours</span>
+          <span class="word"><?php echo $translation["countdown-h"][pll_current_language()] ?></span>
         </div>
         <div>
           <span class="nb" id="minutes">123</span>
-          <span class="word">minutes</span>
+          <span class="word"><?php echo $translation["countdown-m"][pll_current_language()] ?></span>
         </div>
         <div>
           <span class="nb" id="seconds">123</span>
-          <span class="word">seconds</span>
+          <span class="word"><?php echo $translation["countdown-s"][pll_current_language()] ?></span>
         </div>
       </div>
     </div>
-
-    <!--
-    <h2>Mockup:
-    https://drive.google.com/drive/u/2/folders/1C6q4jm98VGwKroqduDY2cOTpXdOi8tgx
-  </h2>
--->
 
 <div class="container">
 
@@ -57,11 +48,12 @@ include("head.php");
     'post_status' => 'publish',
     'lang' => pll_current_language(),
     'posts_per_page' => 6,
-    'paged' => $paged
+    'paged' => $paged,
+    'category__not_in' => $interdit_id
   );
 
-  $arr_posts = new WP_Query( $args );
 
+  $arr_posts = new WP_Query( $args );
 
   if ( $arr_posts->have_posts() ) :
 
@@ -98,7 +90,7 @@ include("head.php");
       <?php
     endwhile;
     ?>
-    <?php the_posts_pagination( array( 'mid_size'  => 2 ) ); ?>
+    <?php $arr_posts->the_posts_pagination( array( 'mid_size'  => 2 ) ); ?>
 
     <?php
   endif;
@@ -109,8 +101,41 @@ include("head.php");
   </div>
 
   </section>
+<script type="text/javascript">
+// Set the date we're counting down to
 
-  <br>
-  <br>
+if(document.getElementById("days") != undefined){
+  var countDownDate = new Date(<?php echo $saturday_date ?>).getTime();
+
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with id="demo"
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+  }, 1000);
+}
+
+</script>
 
   <?php get_footer(); ?>

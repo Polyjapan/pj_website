@@ -8,15 +8,18 @@ add_action( 'init', 'register_my_menu' );
 
 // add custom css and js
 function EnqueueMyStyles() {
-  // wp_enqueue_style('my-custom-style', get_template_directory_uri() . '/css/my-custom-style.css', false, '20150320');
-  //
-  // wp_enqueue_style('my-google-fonts', '//fonts.googleapis.com/css?family=PT+Serif+Caption:400,400italic', false, '20150320');
 
-  //wp_enqueue_style('my-main-style', get_stylesheet_uri(), false, '20150320');
+wp_enqueue_script('jquery', get_template_directory_uri() . '/vendor/jquery-3.3.1.slim.min.js', array(), NULL, false ); // , array ( /*deps*/ ), '1.0', true
+wp_enqueue_script('popper', get_template_directory_uri() . '/vendor/popper.min.js', array(), NULL, false ); // , array ( /*deps*/ ), '1.0', true
+wp_enqueue_script('boostrap-script', get_template_directory_uri() . '/vendor/bootstrap/bootstrap.min.js', array(), array('jquery', 'popper'), false ); // , array ( /*deps*/ ), '1.0', true
 
-wp_enqueue_script('countdown-script', get_template_directory_uri() . '/js/countdown.js', array(), NULL, true ); // , array ( /*deps*/ ), '1.0', true
-wp_enqueue_script('comite-fun-script', get_template_directory_uri() . '/js/comite_fun.js', array(), NULL, true ); // , array ( /*deps*/ ), '1.0', true
-//wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js'); // , array ( /*deps*/ ), '1.0', true
+wp_enqueue_script('comite-fun-script', get_template_directory_uri() . '/js/comite_fun.js', array(), NULL, false ); // , array ( /*deps*/ ), '1.0', true
+
+wp_enqueue_style('fontawesome-style','https://use.fontawesome.com/releases/v5.5.0/css/all.css', array(), null); // , array ( /*deps*/ ), '1.0', true
+// wp_enqueue_style('boostrap-style', get_template_directory_uri() . '/vendor/bootstrap/bootstrap.min.css', array(), null); // , array ( /*deps*/ ), '1.0', true
+// wp_enqueue_style('mystyle', get_template_directory_uri() . '/style.css', array(), null); // , array ( /*deps*/ ), '1.0', true
+
+// wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js'); // , array ( /*deps*/ ), '1.0', true
 
 }
 add_action('wp_footer', 'EnqueueMyStyles');
