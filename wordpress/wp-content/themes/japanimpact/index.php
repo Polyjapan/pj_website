@@ -11,9 +11,10 @@ include("head.php");
 
     <div id="date" class="">
 
-      <div class="bandeau">
-        <?php echo $translation["dates"][pll_current_language()] ?>
-      </div>
+            <div class="bandeau">
+              <?php echo $translation["dates"][pll_current_language()] ?>
+              <span class="date_h"><?php echo $translation["dates_sa"][pll_current_language()] ?><span class="space"></span><?php echo $translation["dates_di"][pll_current_language()] ?></span>
+            </div>
 
       <div id="countdown">
 

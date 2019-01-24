@@ -138,6 +138,14 @@ $translation = array(
     "fr" => "16 et 17 Février 2019", // DATES
     "en" => "February 16th and 17th 2019"
   ),
+  "dates_sa" => array(
+    "fr" => "samedi: 10h - 20h", // DATES
+    "en" => "saturday: 10AM - 8PM"
+  ),
+  "dates_di" => array(
+    "fr" => "dimanche: 10h - 18h", // DATES
+    "en" => "sunday: 10AM - 6PM"
+  ),
   "countdown-d" => array(
     "fr" => "jours",
     "en" => "days"

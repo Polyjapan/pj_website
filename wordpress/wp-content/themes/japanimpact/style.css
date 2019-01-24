@@ -138,10 +138,16 @@ section #date {
     color: white;
     width: 100%;
     margin-bottom: 10px;
-    font-size: 1.5em; }
+    font-size: 1.35em; }
     @media (max-width: 1350px) {
       section #date .bandeau {
         font-size: 0.9em; } }
+    section #date .bandeau .date_h {
+      font-size: 0.45em;
+      display: block;
+      color: lightgrey; }
+      section #date .bandeau .date_h .space {
+        padding: 6%; }
   section #date #countdown {
     display: flex;
     justify-content: center; }
