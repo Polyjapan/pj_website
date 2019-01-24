@@ -43,6 +43,9 @@ include("head.php");
   <?php
 
   $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+  if(!$paged){
+    $paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+  }
 
   $args = array(
     'post_type' => 'post',
@@ -50,11 +53,14 @@ include("head.php");
     'lang' => pll_current_language(),
     'posts_per_page' => 6,
     'paged' => $paged,
-    'category__not_in' => $interdit_id
+    'category__not_in' => $interdit_id,
+
   );
 
 
   $arr_posts = new WP_Query( $args );
+
+  echo ($arr_posts->max_num_pages);
 
   if ( $arr_posts->have_posts() ) :
 
@@ -91,8 +97,9 @@ include("head.php");
       <?php
     endwhile;
     ?>
-    <?php $arr_posts->the_posts_pagination( array( 'mid_size'  => 2 ) ); ?>
 
+    <?php the_posts_pagination( array( 'mid_size' => 2, 'total'=>$arr_posts->max_num_pages )); ?>
+<br>
     <?php
   endif;
 

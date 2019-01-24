@@ -97,6 +97,7 @@ foreach ($rooms as $key => $value) { // hours
   $planning["di"][$key] = $sunday; // sunday
 }
 
+// countdown goal
 // example: 'Feb 16, 2019 10:00:00' // WARNING: it is important to keep the quote marks!
 $saturday_date = "'Feb 16, 2019 10:00:00'";
 

@@ -211,6 +211,8 @@ section#home article, section#category article {
     width: 100%;
     height: 300px;
     object-fit: cover; }
+  section#home article h2, section#category article h2 {
+    text-align: left; }
 
 footer#home_footer {
   width: 100%;
