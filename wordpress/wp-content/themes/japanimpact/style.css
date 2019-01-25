@@ -167,6 +167,10 @@ section #date {
           section #date #countdown div span.word {
             font-size: 1em; } }
 
+.schedule .room {
+  padding: 3px;
+  color: white; }
+
 section {
   text-align: justify; }
   section h2.category-title {
@@ -305,7 +309,7 @@ footer#home_footer {
     vertical-align: middle; }
   #plannings td a {
     color: white;
-    text-transform: capitalize;
+    text-transform: uppercase;
     font-family: primaryFont, arial, sans-serif;
     font-size: 1.2em; }
   #plannings td.offset {

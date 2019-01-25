@@ -36,7 +36,7 @@
         ),
         'before'    => array(
           'year'  => 2019,
-          'month' => 6,
+          'month' => 5,
           'day'   => 2,
         ),
         'inclusive' => true,
@@ -58,16 +58,16 @@
   $to_array =  array_map('trim', explode(",",$meta['to'][0]));
   $room_array =  array_map('trim', explode(",",$meta['room'][0]));
 
-  $is_complete = (strlen($plan_array[0])!=0) && (strlen($day_array[0])!=0) && (strlen($from_array[0])!=0) && (strlen($to_array[0])!=0) && (strlen($room_array[0])!=0); 
+  $is_complete = (strlen($plan_array[0])!=0) && (strlen($day_array[0])!=0) && (strlen($from_array[0])!=0) && (strlen($to_array[0])!=0) && (strlen($room_array[0])!=0);
 
   if(!empty($plan_array) && $is_complete) {
 
     for ($p=0; $p < sizeof($plan_array); $p++) {
-      $plan = $plan_array[$p];
-      $day = $day_array[$p];
+      $plan = strtolower($plan_array[$p]);
+      $day = strtolower($day_array[$p]);
       $from = $from_array[$p];
       $to = $to_array[$p];
-      $room = $room_array[$p];
+      $room = strtolower($room_array[$p]);
 
 
       $date_to = strtotime($to);
@@ -75,11 +75,13 @@
       $int1 = $date_to - $date_from;
       $h = (int)date('H',$int1);
       $m = (int)date('i',$int1);
-      $duration = $m/30 + 2*$h;
+      $duration = $m/15 + 4*$h;
 
       $curr = $date_from;
+
       for($i = 0; $i < $duration-1; $i++){ // cancel rowspan -->  too much td
-        $curr = date("H:i", strtotime("+30 minutes",$curr));
+        $curr = date("H:i", strtotime("+15 minutes",$curr));
+
         array_push($planning[$day][$plan][$curr][$room], array(0, $name, $color, $id));
         $curr = strtotime($curr);
       }
@@ -126,7 +128,12 @@ endwhile; endif;
 
           $k1 = date("H:i",strtotime("+30 minutes", strtotime($k)));
 
-          echo '<th class="table-hour" scope="row">'. $k . " - " . $k1 .'</th>';
+          $k2 = date('i',strtotime($k));
+          if($k2==30 || $k2==00){
+            echo '<th class="table-hour" scope="row" rowspan="2">'. $k . " - " . $k1 .'</th>';
+          }
+
+
           foreach($v as $room){ // for each room
             if(empty($room)){ // for each non-empty activity
               echo '<td></td>';

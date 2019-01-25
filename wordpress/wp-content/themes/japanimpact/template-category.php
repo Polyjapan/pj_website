@@ -79,9 +79,9 @@ include("settings.php");
 
                   for ($i=0; $i < sizeof($day_array); $i++) {
 
-                    $day = ucfirst($translation[$day_array[$i]][pll_current_language()]);
+                    $day = ucfirst($translation[strtolower($day_array[$i])][pll_current_language()]);
                     $at = $translation['at'][pll_current_language()];
-                    $room = '<span class="room" style="background-color:'.$zone_colors[$plan_array[$i]].'">'.ucfirst($room_array[$i]).'</span>';
+                    $room = '<span class="room" style="background-color:'.$zone_colors[strtolower($plan_array[$i])].'">'.ucfirst(strtolower($room_array[$i])).'</span>';
                     $date = $day . "," . $from_array[$i] . " - " . $to_array[$i] . " ". $at." " . $room;
 
                     array_push($dates,$date);

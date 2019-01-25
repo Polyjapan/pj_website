@@ -17,7 +17,7 @@ $download_di = custom_get_page_link("Download planning Dimanche"); // name of do
 // CATEGORIES SELECTION
 if(pll_current_language() == "fr") {
   //$categories_all = "martial-arts,projections,conferences,animations,concerts,ateliers,activites-continues"; // slugs of the categories in the program FR
-    $categories_all = "martial-arts,projections,conferences,animations,concerts-fr,ateliers,activites-continues"; // slugs of the categories in the program FR
+  $categories_all = "martial-arts,projections,conferences,animations,concerts-fr,ateliers,activites-continues"; // slugs of the categories in the program FR
   $category_slugs = preg_split("/\,/",$categories_all);
   $interdit_category = "interdit"; // forbidden category slug FR
 }
@@ -59,38 +59,39 @@ $zone_colors = array(
   "purple" => "#7c277d",
   "red" => "#ed2024",
   "orange" => "#f08821",
-  "pink" => "#f497c0"
+  "pink" => "#f497c0",
+  "rolex" => "grey"
 );
 
 
 $rooms = array(
   // zones, rooms
-  "green" => array("aki" => array(),"natsu" => array(),"haru" => array(),"uki" => array(),"fuyu" => array()),
+  "green" => array("aki" => array(),"natsu" => array(),"haru" => array(),"uki" => array()),
   "yellow" => array("matcha" => array(),"mochi" => array()), // yellow
-  "pink" => array("myôga" => array(),"momiji" => array(), "ginkgo"=>array(), "sakura"=>array()), // pink
+  "pink" => array("myôga" => array(),"momiji" => array(), "gingko"=>array(), "sakura"=>array()), // pink
   "orange" => array("meiji" => array(),"edo" => array(), "mad café"=>array(), "edo"=>array(), "sengoku"=>array()), // orange
   "red" => array("tokyo" => array(),"kyoto" => array(), "osaka"=>array(), "nara"=>array(), "nagoya"=>array(), "nagano"=>array(), "sapporo"=>array()), // rouge
   "blue" => array("matsuri" => array()), // blue
-  "purple" => array("usagi" => array(),"kistune" => array(), "tanuki"=>array(), "shika"=>array()), // purple
-
+  "purple" => array("usagi" => array(),"kitsune" => array(), "tanuki"=>array(), "shika"=>array()), // purple
+  "rolex" => array("rolex" => array())
 );
 
 $planning = array("sa" => array(), "di"=> array()); // days
 
 foreach ($rooms as $key => $value) { // hours
   $satursday = array(
-    "10:00"=>$value, "10:30"=>$value, "11:00"=>$value, "11:30"=>$value,
-    "12:00"=>$value, "12:30"=>$value, "13:00"=>$value, "13:30"=>$value,
-    "14:00"=>$value, "14:30"=>$value, "15:00"=>$value, "15:30"=>$value,
-    "16:00"=>$value, "16:30"=>$value, "17:00"=>$value, "17:30"=>$value,
-    "18:00"=>$value, "18:30"=>$value, "19:00"=>$value, "19:30"=>$value
+    "10:00"=>$value,"10:15"=>$value, "10:30"=>$value,"10:45"=>$value, "11:00"=>$value, "11:15"=>$value, "11:30"=>$value, "11:45"=>$value,
+    "12:00"=>$value,"12:15"=>$value, "12:30"=>$value, "12:45"=>$value,"13:00"=>$value,"13:15"=>$value, "13:30"=>$value,"13:45"=>$value,
+    "14:00"=>$value,"14:15"=>$value, "14:30"=>$value, "14:45"=>$value,"15:00"=>$value,"15:15"=>$value, "15:30"=>$value,"15:45"=>$value,
+    "16:00"=>$value,"16:15"=>$value, "16:30"=>$value, "16:45"=>$value,"17:00"=>$value,"17:15"=>$value, "17:30"=>$value,"17:45"=>$value,
+    "18:00"=>$value,"18:15"=>$value, "18:30"=>$value, "18:45"=>$value,"19:00"=>$value, "19:15"=>$value, "19:30"=>$value,"19:45"=>$value,
   );
+
   $sunday = array(
-    "10:00"=>$value, "10:30"=>$value, "11:00"=>$value, "11:30"=>$value,
-    "12:00"=>$value, "12:30"=>$value, "13:00"=>$value, "13:30"=>$value,
-    "14:00"=>$value, "14:30"=>$value, "15:00"=>$value, "15:30"=>$value,
-    "16:00"=>$value, "16:30"=>$value, "17:00"=>$value, "17:30"=>$value,
-    "18:00"=>$value
+    "10:00"=>$value,"10:15"=>$value, "10:30"=>$value,"10:45"=>$value, "11:00"=>$value, "11:15"=>$value, "11:30"=>$value, "11:45"=>$value,
+    "12:00"=>$value,"12:15"=>$value, "12:30"=>$value, "12:45"=>$value,"13:00"=>$value,"13:15"=>$value, "13:30"=>$value,"13:45"=>$value,
+    "14:00"=>$value,"14:15"=>$value, "14:30"=>$value, "14:45"=>$value,"15:00"=>$value,"15:15"=>$value, "15:30"=>$value,"15:45"=>$value,
+    "16:00"=>$value,"16:15"=>$value, "16:30"=>$value, "16:45"=>$value,"17:00"=>$value,"17:15"=>$value, "17:30"=>$value,"17:45"=>$value,
   );
 
   $planning["sa"][$key] = $satursday; // saturday

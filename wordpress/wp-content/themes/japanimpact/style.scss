@@ -292,6 +292,11 @@ section #date {
   }
 }
 
+.schedule .room {
+  padding:3px;
+  color:white;
+}
+
 section {
 
   //margin:3% auto;
@@ -530,7 +535,7 @@ footer#home_footer {
 
     td a {
       color:white;
-      text-transform: capitalize;
+      text-transform: uppercase;
       font-family:primaryFont, arial, sans-serif;
       font-size: 1.2em;
     }
