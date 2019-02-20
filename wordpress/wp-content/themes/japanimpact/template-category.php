@@ -28,6 +28,8 @@ include("settings.php");
           'post_status' => 'publish',
           'lang' => pll_current_language(),
           'category_name' => $c,
+          'orderby' => 'title',
+          'order' => 'ASC'
         );
 
 

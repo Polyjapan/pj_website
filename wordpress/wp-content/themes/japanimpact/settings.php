@@ -17,18 +17,20 @@ $download_di = custom_get_page_link("Download planning Dimanche"); // name of do
 // CATEGORIES SELECTION
 if(pll_current_language() == "fr") {
   //$categories_all = "martial-arts,projections,conferences,animations,concerts,ateliers,activites-continues"; // slugs of the categories in the program FR
-  $categories_all = "martial-arts,projections,conferences,animations,concerts-fr,ateliers,activites-continues"; // slugs of the categories in the program FR
+  $categories_all = "activites-continues,animations,martial-arts,ateliers,concerts-fr,conferences,jeux-video,projections"; // slugs of the categories in the program FR
   $category_slugs = preg_split("/\,/",$categories_all);
   $interdit_category = "interdit"; // forbidden category slug FR
+  $notshown = "hidden-fr"; // forbidden category slug FR
 }
 else {
-  $categories_all = "martial-arts-en,projections-en,conferences-en,animations-en,concerts-en,ateliers-en,continuous-activities"; // slugs of the categories in the program EN
+  $categories_all = "continuous-activities,animations-en,concerts-en,conferences-en,ateliers-en,martial-arts-en,projections-en,video-games"; // slugs of the categories in the program EN
   $category_slugs = preg_split("/\,/",$categories_all);
   $interdit_category = "forbidden"; // forbidden category slug EN
-  $interdit_id = "";
+  $notshown = "index-hidden"; // forbidden category slug EN
 }
 
 $interdit_id = get_category_by_slug($interdit_category)->term_id;
+$notshown_id = get_category_by_slug($notshown)->term_id;
 
 $colors = array(
   // categories colors
@@ -39,16 +41,18 @@ $colors = array(
   "projections-en" => "#8178ca",
   "conferences" => "#39b54a",
   "conferences-en" => "#39b54a",
-  "animations" => "#ffa92e",
-  "animations-en" => "#ffa92e",
-  "concerts" => "#3953a4",
-  "concerts-en" => "#3953a4",
-  "ateliers" => "grey",
-  "ateliers-en" => "grey",
+  "animations" => "#cf2afc",
+  "animations-en" => "#cf2afc",
+  "concerts-fr" => "#820606",
+  "concerts-en" => "#820606",
+  "ateliers" => "#136448",
+  "ateliers-en" => "#136448",
   "continuous-activities" => "#ec008c",
   "activites-continues" => "#ec008c",
-  "interdit" => "grey",
-  "forbidden" => "grey"
+  "interdit" => "#464646",
+  "forbidden" => "#464646",
+  "jeux-video" => "#ffa92e",
+  "video-games" => "#ffa92e"
 );
 
 // zone colors
@@ -69,8 +73,8 @@ $rooms = array(
   "green" => array("aki" => array(),"natsu" => array(),"haru" => array(),"uki" => array()),
   "yellow" => array("matcha" => array(),"mochi" => array()), // yellow
   "pink" => array("myôga" => array(),"momiji" => array(), "gingko"=>array(), "sakura"=>array()), // pink
-  "orange" => array("meiji" => array(),"edo" => array(), "mad café"=>array(), "edo"=>array(), "sengoku"=>array()), // orange
-  "red" => array("tokyo" => array(),"kyoto" => array(), "osaka"=>array(), "nara"=>array(), "nagoya"=>array(), "nagano"=>array(), "sapporo"=>array()), // rouge
+  "orange" => array("meiji" => array(),"edo" => array(), "maid café"=>array(), "edo"=>array(), "sengoku"=>array()), // orange
+  "red" => array("tokyo" => array(),"kyoto" => array(), "osaka"=>array(), "nara"=>array(), "nagoya"=>array(), "nagano"=>array(), "sapporo"=>array(), "okinawa"=>array()), // rouge
   "blue" => array("matsuri" => array()), // blue
   "purple" => array("usagi" => array(),"kitsune" => array(), "tanuki"=>array(), "shika"=>array()), // purple
   "rolex" => array("rolex" => array())
@@ -85,6 +89,7 @@ foreach ($rooms as $key => $value) { // hours
     "14:00"=>$value,"14:15"=>$value, "14:30"=>$value, "14:45"=>$value,"15:00"=>$value,"15:15"=>$value, "15:30"=>$value,"15:45"=>$value,
     "16:00"=>$value,"16:15"=>$value, "16:30"=>$value, "16:45"=>$value,"17:00"=>$value,"17:15"=>$value, "17:30"=>$value,"17:45"=>$value,
     "18:00"=>$value,"18:15"=>$value, "18:30"=>$value, "18:45"=>$value,"19:00"=>$value, "19:15"=>$value, "19:30"=>$value,"19:45"=>$value,
+    "20:00"=>$value,"20:15"=>$value, "20:30"=>$value, "20:45"=>$value
   );
 
   $sunday = array(
@@ -164,4 +169,40 @@ $translation = array(
     "fr" => "secondes",
     "en" => "seconds"
   ),
+  "green" => array(
+    "fr" => "verte",
+    "en" => "green"
+  ),
+  "red" => array(
+    "fr" => "rouge",
+    "en" => "red"
+  ),
+  "purple" => array(
+    "fr" => "violette",
+    "en" => "purple"
+  ),
+  "rolex" => array(
+    "fr" => "rolex",
+    "en" => "rolex"
+  ),
+  "pink" => array(
+    "fr" => "rose",
+    "en" => "pink"
+  ),
+  "orange" => array(
+    "fr" => "orange",
+    "en" => "orange"
+  ),
+  "blue" => array(
+    "fr" => "bleue",
+    "en" => "blue"
+  ),
+  "yellow" => array(
+    "fr" => "jaune",
+    "en" => "yellow"
+  ),
+  "planning" => array(
+    "fr" => "Cliquez sur la couleur de la zone désirée pour découvrir les horaires des activités pour chaque jour !",
+    "en" => "Click on the wanted area color to discover the activities schedule for each day!"
+  )
 );

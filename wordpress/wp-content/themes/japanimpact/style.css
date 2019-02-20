@@ -34,6 +34,9 @@ a, a:hover {
   text-decoration: none;
   color: #d21e2e; }
 
+a:hover {
+  opacity: 0.8; }
+
 h1 {
   font-size: 2.5em;
   text-transform: uppercase;
@@ -215,8 +218,11 @@ section#home article, section#category article {
     width: 100%;
     height: 300px;
     object-fit: cover; }
-  section#home article h2, section#category article h2 {
-    text-align: left; }
+  section#home article a h2, section#category article a h2 {
+    text-align: left;
+    color: black; }
+    section#home article a h2:hover, section#category article a h2:hover {
+      color: #d21e2e; }
 
 footer#home_footer {
   width: 100%;
@@ -322,6 +328,8 @@ footer#home_footer {
     color: black;
     text-transform: uppercase;
     vertical-align: middle; }
+    #plannings th.table-hour {
+      font-size: 1.1em; }
   #plannings th.room {
     color: white;
     text-shadow: black 1px 1px 0px,black -1px 1px 0px,black 1px -1px 0px,black -1px -1px 0px; }
@@ -383,7 +391,7 @@ footer#home_footer {
 /* Anchor will cover the whole item by default */
 /* For some effects it will show as a button */
 .grid figure figcaption > a {
-  z-index: 1000;
+  z-index: 2;
   text-indent: 200%;
   white-space: nowrap;
   font-size: 0;
@@ -436,7 +444,7 @@ figure.effect-honey figcaption.ateliers::before, figure.effect-honey figcaption.
   content: '';
   -webkit-transform: translate3d(0, 10px, 0);
   transform: translate3d(0, 10px, 0);
-  background: grey; }
+  background: #136448; }
 figure.effect-honey figcaption.concerts::before, figure.effect-honey figcaption.concerts-en::before {
   position: absolute;
   bottom: 0;
@@ -446,7 +454,7 @@ figure.effect-honey figcaption.concerts::before, figure.effect-honey figcaption.
   content: '';
   -webkit-transform: translate3d(0, 10px, 0);
   transform: translate3d(0, 10px, 0);
-  background: #3953a4; }
+  background: #820606; }
 figure.effect-honey figcaption.conferences::before, figure.effect-honey figcaption.conferences-en::before {
   position: absolute;
   bottom: 0;
@@ -466,7 +474,7 @@ figure.effect-honey figcaption.animations::before, figure.effect-honey figcaptio
   content: '';
   -webkit-transform: translate3d(0, 10px, 0);
   transform: translate3d(0, 10px, 0);
-  background: #ffa92e; }
+  background: #cf2afc; }
 figure.effect-honey figcaption.continuous-activities::before, figure.effect-honey figcaption.activites-continues::before {
   position: absolute;
   bottom: 0;
@@ -477,6 +485,16 @@ figure.effect-honey figcaption.continuous-activities::before, figure.effect-hone
   -webkit-transform: translate3d(0, 10px, 0);
   transform: translate3d(0, 10px, 0);
   background: #ec008c; }
+figure.effect-honey figcaption.jeux-video::before, figure.effect-honey figcaption.jeux-video::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  content: '';
+  -webkit-transform: translate3d(0, 10px, 0);
+  transform: translate3d(0, 10px, 0);
+  background: #ffa92e; }
 
 /*effect*/
 figure.effect-honey h2 {
@@ -533,7 +551,8 @@ section#page, section#article {
   border: double 4px #d21e2e;
   margin: 20px auto;
   display: block;
-  max-width: 100%; }
+  max-width: 100%;
+  max-height: 500px; }
 
 /*ADMIN EDIT LINKS*/
 .entry-footer a {

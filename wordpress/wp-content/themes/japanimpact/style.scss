@@ -24,11 +24,12 @@ $desktop-width: 1650px;
 
 $conferences: #39b54a;
 $projections: #8178ca;
-$ateliers: grey;
-$animations: #ffa92e;
-$concerts: #3953a4;
+$ateliers: #136448;
+$animations: #cf2afc;
+$concerts: #820606;
 $martial-arts: #00aeef;
 $continuous-activities: #ec008c;
+$jeux-video: #ffa92e;
 
 @font-face {
   font-family: primaryFont;
@@ -85,6 +86,10 @@ article .container {
 a, a:hover {
   text-decoration: none;
   color:$primaryColor;
+}
+
+a:hover {
+  opacity:0.8;
 }
 
 h1 {
@@ -379,8 +384,13 @@ section#home article,section#category article{
     object-fit: cover;
   }
 
-  h2 {
+  a h2 {
     text-align: left;
+    color:black;
+
+    &:hover {
+      color:$primaryColor;
+    }
   }
 }
 
@@ -552,6 +562,10 @@ footer#home_footer {
       color:black;
       text-transform: uppercase;
       vertical-align: middle;
+
+      &.table-hour {
+        font-size:1.1em;
+      }
     }
 
     th.room {
@@ -636,7 +650,7 @@ footer#home_footer {
 /* Anchor will cover the whole item by default */
 /* For some effects it will show as a button */
 .grid figure figcaption > a {
-  z-index: 1000;
+  z-index: 2;
   text-indent: 200%;
   white-space: nowrap;
   font-size: 0;
@@ -702,6 +716,9 @@ figure.effect-honey figcaption{
   }
   &.continuous-activities,&.activites-continues {
     @include before($continuous-activities);
+  }
+  &.jeux-video,&.jeux-video {
+    @include before($jeux-video);
   }
 
 }
@@ -777,6 +794,7 @@ section#page, section#article {
   margin:20px auto;
   display:block;
   max-width: 100%;
+  max-height:500px;
 }
 
 

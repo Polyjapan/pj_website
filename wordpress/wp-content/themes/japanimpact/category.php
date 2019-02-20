@@ -18,16 +18,19 @@ include("head.php");
 
       <?php
 
-      $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+      // $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+      // if(!$paged){
+      //   $paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+      // }
 
       $args = array(
         'post_type' => 'post',
         'post_status' => 'publish',
         'lang' => pll_current_language(),
-        'posts_per_page' => 6,
-        'paged' => $paged,
+        //'posts_per_page' => 6,
+        //'paged' => $paged,
+        'orderby'=> 'title', 'order' => 'ASC',
         'cat' => get_queried_object()->term_id,
-        'orderby'=> 'title', 'order' => 'ASC'
       );
 
       $arr_posts = new WP_Query( $args );
@@ -53,7 +56,7 @@ include("head.php");
                 endif;
                 ?>
                 <header class="entry-header">
-                  <h2 class="entry-title"><?php the_title(); ?></h2>
+                  <a href="<?php the_permalink(); ?>"><h2 class="entry-title"><?php the_title(); ?></h2></a>
                 </header>
                 <span class="date"><?php echo get_the_date(); ?></span>
                 <div class="entry-content">
@@ -68,7 +71,9 @@ include("head.php");
           <?php
         endwhile;
         ?>
-        <?php the_posts_pagination( array( 'mid_size'  => 2 ) ); ?>
+            <?php
+// the_posts_pagination( array( 'mid_size' => 2, 'total'=>$arr_posts->max_num_pages ));
+             ?>
 
         <?php
       endif;

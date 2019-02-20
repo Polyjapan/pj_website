@@ -29,7 +29,7 @@ include("settings.php");
           <div class="row mb-2 mt-12">
             <div class="col-sm-12">
 
-              <img class="article_img" src="  <?php echo get_post_custom()['img'][0]; ?>   " alt=""/>
+              <a href="<?php echo get_post_custom()['img'][0]; ?>"><img class="article_img" src="  <?php echo get_post_custom()['img'][0]; ?>   " alt=""/></a>
 
             </div>
           </div>
@@ -48,19 +48,21 @@ include("settings.php");
             $to_array =  array_map('trim', explode(",",$meta['to'][0]));
             $room_array =  array_map('trim', explode(",",$meta['room'][0]));
 
-            for ($i=0; $i < sizeof($day_array); $i++) {
+            if(!empty($plan_array[0])) {
+              for ($i=0; $i < sizeof($day_array); $i++) {
 
-              $day = ucfirst($translation[strtolower($day_array[$i])][pll_current_language()]);
-              $at = $translation['at'][pll_current_language()];
-              $room = '<span class="room" style="background-color:'.$zone_colors[strtolower($plan_array[$i])].'">'.ucfirst(strtolower($room_array[$i])).'</span>';
-              $date = '<i class="fas fa-angle-double-right"></i> ' . $day . "," . $from_array[$i] . " - " . $to_array[$i] . " ". $at." " . $room;
+                $day = ucfirst($translation[strtolower($day_array[$i])][pll_current_language()]);
+                $at = $translation['at'][pll_current_language()];
+                $room = '<span class="room" style="background-color:'.$zone_colors[strtolower($plan_array[$i])].'">'.ucfirst(strtolower($room_array[$i])).'</span>';
+                $date = '<i class="fas fa-angle-double-right"></i> ' . $day . "," . $from_array[$i] . " - " . $to_array[$i] . " ". $at." " . $room;
 
-              array_push($dates,$date);
+                array_push($dates,$date);
+              }
+              $dates = implode("<br>", $dates);
+              echo $dates . "<br/><br/>";
             }
 
-            $dates = implode("<br>", $dates);
 
-            echo $dates . "<br/><br/>";
 
 
             ?>

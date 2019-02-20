@@ -53,14 +53,12 @@ include("head.php");
     'lang' => pll_current_language(),
     'posts_per_page' => 6,
     'paged' => $paged,
-    'category__not_in' => $interdit_id,
+    'category__not_in' => array($interdit_id,$notshown_id),
 
   );
 
 
   $arr_posts = new WP_Query( $args );
-
-  echo ($arr_posts->max_num_pages);
 
   if ( $arr_posts->have_posts() ) :
 
@@ -82,7 +80,7 @@ include("head.php");
             endif;
             ?>
             <header class="entry-header">
-              <h2 class="entry-title"><?php the_title(); ?></h2>
+              <a href="<?php the_permalink(); ?>"><h2 class="entry-title"><?php the_title(); ?></h2></a>
             </header>
             <span class="date"><?php echo get_the_date(); ?></span>
             <div class="entry-content">

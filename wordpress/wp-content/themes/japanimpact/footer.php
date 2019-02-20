@@ -73,6 +73,7 @@
           </a>
           <a href="https://www.epfl.ch/"><img src="https://www.smartlivinglab.ch/files/logo-epfl-white.png" alt="epfl logo"/></a>
           <a href="https://agepoly.ch/"><img src="https://agepoly.ch/static/media/uploads/.thumbnails/logo_agepoly_-_horizontal.png/logo_agepoly_-_horizontal-369x91.png" alt="agepoly logo"/></a>
+          <a href="http://www.tanigami.com/"><img src="https://i.imgur.com/upEPivC.png" alt=""> </a>
         </div>
 
       </div>
