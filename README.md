@@ -1,4 +1,5 @@
-# pj_website
+# Japan Impact Wordpress 2019-2020
 
-reorganisation des pages: https://docs.google.com/document/d/1XzxRlx47I3CVmhTGNt1dqHRvsO9MMCzEAqqffBsIZdU/edit
-layout: https://pyphilia.github.io/pj_website/layout/
+![screenshot homepage][https://i.imgur.com/YxbjFle.png]
+
+![screenshot automatic schedule plan][https://i.imgur.com/4A87dBp.jpg]
