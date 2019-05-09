@@ -16,8 +16,8 @@ $download_di = custom_get_page_link("Download planning Dimanche"); // name of do
 
 // CATEGORIES SELECTION
 if(pll_current_language() == "fr") {
-  //$categories_all = "martial-arts,projections,conferences,animations,concerts,ateliers,activites-continues"; // slugs of the categories in the program FR
-  $categories_all = "activites-continues,animations,martial-arts,ateliers,concerts-fr,conferences,jeux-video,projections"; // slugs of the categories in the program FR
+  $categories_all = "martial-arts,projections,conferences,animations,concerts,ateliers,activites-continues"; // slugs of the categories in the program FR
+  // $categories_all = "activites-continues,animations,martial-arts,ateliers,concerts-fr,conferences,jeux-video,projections"; // slugs of the categories in the program FR
   $category_slugs = preg_split("/\,/",$categories_all);
   $interdit_category = "interdit"; // forbidden category slug FR
   $notshown = "hidden-fr"; // forbidden category slug FR
@@ -79,6 +79,8 @@ $rooms = array(
   "purple" => array("usagi" => array(),"kitsune" => array(), "tanuki"=>array(), "shika"=>array()), // purple
   "rolex" => array("rolex" => array())
 );
+
+$rooms_excluded = array('rolex', 'matsuri'); 
 
 $planning = array("sa" => array(), "di"=> array()); // days
 

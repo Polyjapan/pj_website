@@ -1,6 +1,4 @@
 
-
-
 <br>
 <!-- <a target="_blank" id="download_link" href="<?php echo $download_sa ?>">
   <h3 style="text-align:center">>> <?php echo $translation["sa"][pll_current_language()]. " : ".$translation["download"][pll_current_language()] ; ?> <<
@@ -26,7 +24,8 @@
     'post_type' => 'post',
     'post_status' => 'publish',
     'lang' => pll_current_language(),
-    'category_name' => $categories_all .",". $interdit_category,
+    'category_name' => $categories_all,
+    'posts_per_page' => 60,
     // 'date_query' => array(
     //   array(
     //     'after'     => array(
@@ -45,6 +44,9 @@
   );
 
   $arr_posts = new WP_Query( $args );
+
+  // var_dump($arr_posts);
+
 
   if ( $arr_posts->have_posts() ) : while ( $arr_posts->have_posts() ) : $arr_posts->the_post();
   $str = get_the_content();
