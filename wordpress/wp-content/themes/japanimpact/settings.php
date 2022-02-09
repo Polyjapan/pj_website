@@ -1,6 +1,7 @@
 <?php
 // header link
-$HEADER_LINK = "https://i.imgur.com/AURHTat.png"; // header image link
+$HEADER_LINK = "https://i.imgur.com/Njy4LV7.png"; // header image link
+//$HEADER_LINK = "https://i.imgur.com/AURHTat.png"; // old header image link
 $PLANNING_IMG = "https://japan-impact.ch/wp-content/uploads/2019/01/planning_complet-4.jpg"; // planning plan image link
 $LOGO_URL = "https://upload.wikimedia.org/wikipedia/fr/5/52/Japan_Impact_Logo.png"; // logo link
 
@@ -16,8 +17,8 @@ $download_di = custom_get_page_link("Download planning Dimanche"); // name of do
 
 // CATEGORIES SELECTION
 if(pll_current_language() == "fr") {
-  $categories_all = "martial-arts,projections,conferences,animations,concerts,ateliers,activites-continues"; // slugs of the categories in the program FR
-  // $categories_all = "activites-continues,animations,martial-arts,ateliers,concerts-fr,conferences,jeux-video,projections"; // slugs of the categories in the program FR
+  //$categories_all = "martial-arts,projections,conferences,animations,concerts,ateliers,activites-continues"; // slugs of the categories in the program FR
+  $categories_all = "activites-continues,animations,martial-arts,ateliers,concerts-fr,conferences,jeux-video,projections"; // slugs of the categories in the program FR
   $category_slugs = preg_split("/\,/",$categories_all);
   $interdit_category = "interdit"; // forbidden category slug FR
   $notshown = "hidden-fr"; // forbidden category slug FR
@@ -80,8 +81,6 @@ $rooms = array(
   "rolex" => array("rolex" => array())
 );
 
-$rooms_excluded = array('rolex', 'matsuri'); 
-
 $planning = array("sa" => array(), "di"=> array()); // days
 
 foreach ($rooms as $key => $value) { // hours
@@ -106,8 +105,8 @@ foreach ($rooms as $key => $value) { // hours
 }
 
 // countdown goal
-// example: 'Feb 16, 2019 10:00:00' // WARNING: it is important to keep the quote marks!
-$saturday_date = "'Feb 16, 2019 10:00:00'";
+// example: 'Feb 15, 2020 10:00:00' // WARNING: it is important to keep the quote marks!
+$saturday_date = "'Aug 20, 2022 10:00:00'";
 
 // manual translations
 $translation = array(
@@ -144,8 +143,8 @@ $translation = array(
     "en" => "Download plannings"
   ),
   "dates" => array(
-    "fr" => "16 et 17 Février 2019", // DATES
-    "en" => "February 16th and 17th 2019"
+    "fr" => "20 et 21 Août 2022", // DATES
+    "en" => "August 20th and 21st 2022"
   ),
   "dates_sa" => array(
     "fr" => "samedi: 10h - 20h", // DATES

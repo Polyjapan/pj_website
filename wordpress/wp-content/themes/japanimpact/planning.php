@@ -1,14 +1,15 @@
-
 <br>
-<!-- <a target="_blank" id="download_link" href="<?php echo $download_sa ?>">
+<br>
+<br>
+ <a target="_blank" id="download_link" href="https://japan-impact.ch/wp-content/uploads/2019/02/program_sa_a4-merged-2.pdf">
   <h3 style="text-align:center">>> <?php echo $translation["sa"][pll_current_language()]. " : ".$translation["download"][pll_current_language()] ; ?> <<
   </h3>
 </a>
-<a target="_blank" id="download_link" href="<?php echo $download_di; ?>">
+<a target="_blank" id="download_link" href="https://japan-impact.ch/wp-content/uploads/2019/02/program_di_a4-merged-2.pdf">
   <h3 style="text-align:center">
     >> <?php echo $translation["di"][pll_current_language()]." : ".  $translation["download"][pll_current_language()] ; ?> <<
   </h3>
-</a> -->
+</a> 
 <br>
 
 <h3 style="color:red;text-transform:uppercase;text-align:center;">Sous réserve de modifications !! // Subject to change!!</h3>
@@ -24,8 +25,7 @@
     'post_type' => 'post',
     'post_status' => 'publish',
     'lang' => pll_current_language(),
-    'category_name' => $categories_all,
-    'posts_per_page' => 60,
+    'category_name' => $categories_all .",". $interdit_category,
     // 'date_query' => array(
     //   array(
     //     'after'     => array(
@@ -44,9 +44,6 @@
   );
 
   $arr_posts = new WP_Query( $args );
-
-  // var_dump($arr_posts);
-
 
   if ( $arr_posts->have_posts() ) : while ( $arr_posts->have_posts() ) : $arr_posts->the_post();
   $str = get_the_content();

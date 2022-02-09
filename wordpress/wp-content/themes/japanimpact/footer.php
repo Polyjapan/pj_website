@@ -35,16 +35,16 @@
               <i class="fab fa-youtube"></i>
             </a>
           </div>
-          <div class="">
+          <!--div class="">
             <a href="https://www.addthis.com/bookmark.php?v=250">
               <i class="fas fa-plus"></i>
             </a>
-          </div>
-          <div class="">
+          </div-->
+          <!--div class="">
             <a href="https://japan-impact.ch/fr/contact/">
               <i class="fas fa-envelope"></i>
             </a>
-          </div>
+          </div-->
         </div>
 
 
@@ -52,7 +52,8 @@
           <p>
             Japan Impact <br>
             PolyJapan – AGEPoly <br>
-            CP16 – Esplanade 13 <br>
+            Esplanade EPFL (MEC 1398.1) <br>
+			Station 9 <br>
             CH-1015 Lausanne
           </p>
 
@@ -69,10 +70,10 @@
 
         <div class="col-sm-12">
           <a href="https://polyjapan.epfl.ch/">
-            <img  src="https://japan-impact.ch/wp-content/uploads/2018/12/Polyjapan-simplifié_big.png" alt="polyjapan logo"/>
+            <img src="https://japan-impact.ch/wp-content/uploads/2021/10/pj_san-1.png" alt="polyjapan logo"/>
           </a>
-          <a href="https://www.epfl.ch/"><img src="https://www.smartlivinglab.ch/files/logo-epfl-white.png" alt="epfl logo"/></a>
-          <a href="https://agepoly.ch/"><img src="https://agepoly.ch/static/media/uploads/.thumbnails/logo_agepoly_-_horizontal.png/logo_agepoly_-_horizontal-369x91.png" alt="agepoly logo"/></a>
+          <a href="https://www.epfl.ch/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Logo_EPFL.svg/1280px-Logo_EPFL.svg.png" alt="epfl logo"/></a>
+          <a href="https://agepoly.ch/"><img src="https://japan-impact.ch/wp-content/uploads/2021/10/logo_agepoly_new-1.png" alt="agepoly logo"/></a>
           <a href="http://www.tanigami.com/"><img src="https://i.imgur.com/upEPivC.png" alt=""> </a>
         </div>
 
@@ -111,7 +112,7 @@
 
 
 <div id="copyright">
-  japan-impact © 2019
+  PolyJapan © 2021
 
 </div>
 

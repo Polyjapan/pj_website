@@ -28,9 +28,9 @@ include("settings.php");
 
           <div class="row mb-2 mt-12">
             <div class="col-sm-12">
-
+		<?php if(isset(get_post_custom()['img'][0])){ ?>
               <a href="<?php echo get_post_custom()['img'][0]; ?>"><img class="article_img" src="  <?php echo get_post_custom()['img'][0]; ?>   " alt=""/></a>
-
+<?php } ?>
             </div>
           </div>
 
@@ -88,10 +88,28 @@ include("settings.php");
 
         ?>
 
+
+
       </div>
     </div>
 
+<script>
+// bricolage pour que ce soit pas chiant pour les galleries
+console.log(document.getElementsByClassName("attachment"))
+if(document.getElementsByClassName("attachment")[0].tagName=='P'){
+p_img = document.getElementsByClassName("attachment")[0];
+img = p_img.getElementsByTagName('img')[0]
+img.setAttribute('width','100%')
+img.removeAttribute('height')
+img.removeAttribute('srcset')
+img.removeAttribute('sizes')
+newSrc = img.src.replace('-300x200','');
+img.src = newSrc
+}
 
+
+
+</script>
   </section>
 
   <?php include("footer.php") ?>

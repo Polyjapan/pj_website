@@ -175,7 +175,7 @@ section #date {
   color: white; }
 
 section {
-  text-align: left; }
+ }
   section h2.category-title {
     font-size: 3em;
     text-indent: 5%;
@@ -584,5 +584,17 @@ section#page, section#article {
 /** CAPTCHA FORM BUG**/
 .captcha_img {
   display: block !important; }
+
+.column-comite {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row-comite:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /*# sourceMappingURL=style.css.map */

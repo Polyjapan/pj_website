@@ -2,6 +2,9 @@
 
   <?php include('settings.php') ?>
 
+	<!--
+  <a class="btn" btn-danger="" style="font-size:1.5rem;position:fixed;bottom:4%;z-index:999;right:7%;background:#d21e2e;border-color:#d21e2e;color:white" href="https://shop.japan-impact.ch">Achetez vos billets ici !</a>
+	-->
   <div class="poster">
 
     <!--
